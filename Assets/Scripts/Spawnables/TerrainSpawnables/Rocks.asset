@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eacd385771fc2f14ab3eef757361ad22, type: 3}
+  m_Name: Rocks
+  m_EditorClassIdentifier: 
+  spawnableName: Rocks
+  matchNormalAngle: 1
+  yOffset: 0.5
+  minPerIsland: 10
+  maxPerIsland: 40
+  objectVariations:
+  - {fileID: 4437577940297331198, guid: b44643d0983a0bf49bc9a94bec2d0b81, type: 3}
+  - {fileID: 5113048268144068228, guid: 2654a911c0f5cac4db38dc62f411fbd2, type: 3}

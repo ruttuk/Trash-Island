@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eacd385771fc2f14ab3eef757361ad22, type: 3}
+  m_Name: Windmill
+  m_EditorClassIdentifier: 
+  spawnableName: Windmill
+  matchNormalAngle: 0
+  yOffset: 0
+  minPerIsland: 0
+  maxPerIsland: 3
+  objectVariations:
+  - {fileID: 6190863358332311172, guid: fdafa03fd1b53714e9808c72edeb0a68, type: 3}

@@ -1,0 +1,167 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23fde755f6522394d903b6e59e7376a9, type: 3}
+  m_Name: Hell
+  m_EditorClassIdentifier: 
+  islandGenerationType: 0
+  landMassPercentage: 1
+  granularity: 1
+  octaves: 12
+  heightMultiplier: 12
+  meshHeightCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.0039520264
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.09196399
+      value: 0.054746225
+      inSlope: 0.7727061
+      outSlope: 0.7727061
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 1
+      outWeight: 0.06965773
+    - serializedVersion: 3
+      time: 0.2524411
+      value: 0.13936648
+      inSlope: -0.31837824
+      outSlope: -0.31837824
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.3460601
+    - serializedVersion: 3
+      time: 0.35461596
+      value: 0.27422774
+      inSlope: 1.0974296
+      outSlope: 1.0974296
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.49168348
+      value: 0.46468583
+      inSlope: -0.40711796
+      outSlope: -0.40711796
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.7934783
+    - serializedVersion: 3
+      time: 0.6182238
+      value: 0.60230964
+      inSlope: 1.0613055
+      outSlope: 1.0613055
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.7208952
+      value: 0.81180954
+      inSlope: 0.47854012
+      outSlope: 0.47854012
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.80685276
+      value: 0.94027674
+      inSlope: 2.099446
+      outSlope: 2.099446
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.9087908
+      value: 1.0289131
+      inSlope: -1.6726487
+      outSlope: -1.6726487
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.9824119
+      value: 0.9802632
+      inSlope: 0.3046473
+      outSlope: 0.3046473
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 1
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1.0557245
+      value: 0.95080554
+      inSlope: -0.760713
+      outSlope: -0.760713
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.89106935
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  terrainTypes:
+  - type: 0
+    height: 0
+    color: {r: 0.19880117, g: 0.053800277, b: 0.3679245, a: 0}
+    spawnableObjects:
+    - {fileID: 11400000, guid: 76c7880f21c497b41bb81050629397af, type: 2}
+  - type: 1
+    height: 0.05
+    color: {r: 0.7830189, g: 0.74954987, b: 0.5503293, a: 0}
+    spawnableObjects:
+    - {fileID: 11400000, guid: 9e860656f2d2ae84d93eef1e5a16e212, type: 2}
+    - {fileID: 11400000, guid: f7d2aa50442ba034c8864ea05ac7eb82, type: 2}
+    - {fileID: 11400000, guid: a13ff935426458540bcb4780ce218573, type: 2}
+  - type: 2
+    height: 0.12
+    color: {r: 0.6698113, g: 0.3254272, b: 0.3254272, a: 0}
+    spawnableObjects:
+    - {fileID: 11400000, guid: a13ff935426458540bcb4780ce218573, type: 2}
+    - {fileID: 11400000, guid: 9e860656f2d2ae84d93eef1e5a16e212, type: 2}
+  - type: 2
+    height: 0.3
+    color: {r: 0.8773585, g: 0.4894977, b: 0.32694018, a: 0}
+    spawnableObjects:
+    - {fileID: 11400000, guid: f7d2aa50442ba034c8864ea05ac7eb82, type: 2}
+  - type: 3
+    height: 0.55
+    color: {r: 0.38679248, g: 0.31198826, b: 0.38204303, a: 0}
+    spawnableObjects:
+    - {fileID: 11400000, guid: f7d2aa50442ba034c8864ea05ac7eb82, type: 2}
+    - {fileID: 11400000, guid: cc59407756741af4caac0a5ea58addc7, type: 2}
+  - type: 3
+    height: 0.8
+    color: {r: 0.2735849, g: 0.18454076, b: 0.24546568, a: 0}
+    spawnableObjects:
+    - {fileID: 11400000, guid: f7d2aa50442ba034c8864ea05ac7eb82, type: 2}
+  - type: 4
+    height: 1
+    color: {r: 0.5849056, g: 0.40005338, b: 0.40005338, a: 0}
+    spawnableObjects:
+    - {fileID: 11400000, guid: cc59407756741af4caac0a5ea58addc7, type: 2}
+    - {fileID: 11400000, guid: f7d2aa50442ba034c8864ea05ac7eb82, type: 2}
+  landmarks:
+  - {fileID: 11400000, guid: 270ffa4dc1603a54ebc11a58527c45e5, type: 2}

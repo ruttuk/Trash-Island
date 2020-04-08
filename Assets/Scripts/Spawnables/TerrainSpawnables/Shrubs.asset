@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eacd385771fc2f14ab3eef757361ad22, type: 3}
+  m_Name: Shrubs
+  m_EditorClassIdentifier: 
+  spawnableName: Shrubs
+  matchNormalAngle: 1
+  yOffset: 0
+  minPerIsland: 40
+  maxPerIsland: 100
+  objectVariations:
+  - {fileID: 3666602786144017440, guid: 05a69a7e1cddf5a44a96708eaf88f6a9, type: 3}
+  - {fileID: 5113359526919267397, guid: 7500658c59316bb40830ef181d2402a8, type: 3}
