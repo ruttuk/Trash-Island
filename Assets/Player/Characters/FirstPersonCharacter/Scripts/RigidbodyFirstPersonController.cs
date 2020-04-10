@@ -1,8 +1,8 @@
 using System;
 using UnityEngine;
 
-namespace UnityStandardAssets.Characters.FirstPerson
-{
+//namespace UnityStandardAssets.Characters.FirstPerson
+//{
     [RequireComponent(typeof (Rigidbody))]
     [RequireComponent(typeof (CapsuleCollider))]
     public class RigidbodyFirstPersonController : MonoBehaviour
@@ -81,13 +81,13 @@ namespace UnityStandardAssets.Characters.FirstPerson
         public MouseLook mouseLook = new MouseLook();
         public AdvancedSettings advancedSettings = new AdvancedSettings();
 
-
         private Rigidbody m_RigidBody;
         private CapsuleCollider m_Capsule;
         private float m_YRotation;
         private Vector3 m_GroundContactNormal;
         private bool m_Jump, m_PreviouslyGrounded, m_Jumping, m_IsGrounded;
 
+        private God m_God;
 
         public Vector3 Velocity
         {
@@ -121,6 +121,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         {
             m_RigidBody = GetComponent<Rigidbody>();
             m_Capsule = GetComponent<CapsuleCollider>();
+            m_God = FindObjectOfType<God>();
             mouseLook.Init (transform, cam.transform);
         }
 
@@ -135,25 +136,42 @@ namespace UnityStandardAssets.Characters.FirstPerson
             }
         }
 
+        private float ladderClimbSpeed = 2f;
+
 
         private void FixedUpdate()
         {
             GroundCheck();
             Vector2 input = GetInput();
 
+            if (m_God.ladderControl)
+            {
+                float descending = m_God.descendingLadder ? -1f : 1f;
+                Vector3 up = new Vector3(0f, input.y * Time.deltaTime * ladderClimbSpeed * descending, 0f);
+                transform.Translate(up);
+            }
+            else
+            {
+                MovePlayer(input);
+            }
+
+        }
+
+        private void MovePlayer(Vector2 input)
+        {
             if ((Mathf.Abs(input.x) > float.Epsilon || Mathf.Abs(input.y) > float.Epsilon) && (advancedSettings.airControl || m_IsGrounded))
             {
                 // always move along the camera forward as it is the direction that it being aimed at
-                Vector3 desiredMove = cam.transform.forward*input.y + cam.transform.right*input.x;
+                Vector3 desiredMove = cam.transform.forward * input.y + cam.transform.right * input.x;
                 desiredMove = Vector3.ProjectOnPlane(desiredMove, m_GroundContactNormal).normalized;
 
-                desiredMove.x = desiredMove.x*movementSettings.CurrentTargetSpeed;
-                desiredMove.z = desiredMove.z*movementSettings.CurrentTargetSpeed;
-                desiredMove.y = desiredMove.y*movementSettings.CurrentTargetSpeed;
+                desiredMove.x = desiredMove.x * movementSettings.CurrentTargetSpeed;
+                desiredMove.z = desiredMove.z * movementSettings.CurrentTargetSpeed;
+                desiredMove.y = desiredMove.y * movementSettings.CurrentTargetSpeed;
                 if (m_RigidBody.velocity.sqrMagnitude <
-                    (movementSettings.CurrentTargetSpeed*movementSettings.CurrentTargetSpeed))
+                    (movementSettings.CurrentTargetSpeed * movementSettings.CurrentTargetSpeed))
                 {
-                    m_RigidBody.AddForce(desiredMove*SlopeMultiplier(), ForceMode.Impulse);
+                    m_RigidBody.AddForce(desiredMove * SlopeMultiplier(), ForceMode.Impulse);
                 }
             }
 
@@ -261,4 +279,4 @@ namespace UnityStandardAssets.Characters.FirstPerson
             }
         }
     }
-}
+//}

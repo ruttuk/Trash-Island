@@ -3,50 +3,55 @@ guid: e07fe27f477906a47b5dcf445dd305b9
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: Boom_Crane
-    100002: Boom_Crane_Base
-    100004: Derrick
-    100006: Entrance
-    100008: Ladder
-    100010: Ladder_Base
-    100012: //RootNode
-    100014: Platform
-    100016: Support
-    400000: Boom_Crane
-    400002: Boom_Crane_Base
-    400004: Derrick
-    400006: Entrance
-    400008: Ladder
-    400010: Ladder_Base
-    400012: //RootNode
-    400014: Platform
-    400016: Support
+    100000: Barrier
+    100002: Boom_Crane
+    100004: Boom_Crane_Base
+    100006: Derrick
+    100008: Entrance
+    100010: Ladder
+    100012: Ladder_Base
+    100014: //RootNode
+    100016: Platform
+    100018: Support
+    400000: Barrier
+    400002: Boom_Crane
+    400004: Boom_Crane_Base
+    400006: Derrick
+    400008: Entrance
+    400010: Ladder
+    400012: Ladder_Base
+    400014: //RootNode
+    400016: Platform
+    400018: Support
     2100000: Material
     2100002: No Name
-    2300000: Boom_Crane
-    2300002: Boom_Crane_Base
-    2300004: Derrick
-    2300006: Entrance
-    2300008: Ladder
-    2300010: Ladder_Base
-    2300012: Platform
-    2300014: Support
-    3300000: Boom_Crane
-    3300002: Boom_Crane_Base
-    3300004: Derrick
-    3300006: Entrance
-    3300008: Ladder
-    3300010: Ladder_Base
-    3300012: Platform
-    3300014: Support
+    2300000: Barrier
+    2300002: Boom_Crane
+    2300004: Boom_Crane_Base
+    2300006: Derrick
+    2300008: Entrance
+    2300010: Ladder
+    2300012: Ladder_Base
+    2300014: Platform
+    2300016: Support
+    3300000: Barrier
+    3300002: Boom_Crane
+    3300004: Boom_Crane_Base
+    3300006: Derrick
+    3300008: Entrance
+    3300010: Ladder
+    3300012: Ladder_Base
+    3300014: Platform
+    3300016: Support
     4300000: Platform
     4300002: Boom_Crane
     4300004: Derrick
-    4300006: Entrance
-    4300008: Support
-    4300010: Boom_Crane_Base
-    4300012: Ladder_Base
-    4300014: Ladder
+    4300006: Support
+    4300008: Boom_Crane_Base
+    4300010: Ladder_Base
+    4300012: Ladder
+    4300014: Barrier
+    4300016: Entrance
   externalObjects: {}
   materials:
     importMaterials: 1

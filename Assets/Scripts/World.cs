@@ -32,6 +32,8 @@ public class World : MonoBehaviour
     {
         CreateWorld();
         CreateOcean();
+
+        Spawner.SpawnLandmarks(regions, landmarks);
     }
 
     void CreateWorld()

@@ -10,7 +10,8 @@ public class Island
     public int y;
     public Texture2D texture;
     public MeshData meshData;
-    public IslandData.IslandTerrainType[,] terrainMap; 
+    public IslandData.IslandTerrainType[,] terrainMap;
+    public GameObject islandMeshObject;
 
     public Island(int size)
     {

@@ -18,16 +18,18 @@ public class Boat : MonoBehaviour
     float bobRange = 1.1f;
 
     Camera main;
+    Transform playerTransform;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         main = Camera.main;
+        playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     void FixedUpdate()
     {
-        if(!god.playerControl)
+        if(!god.playerControl && !god.ladderControl)
         {
             float x = Input.GetAxis("Horizontal");
             float y = Input.GetAxis("Vertical");
@@ -66,7 +68,7 @@ public class Boat : MonoBehaviour
         }
         else
         {
-            if(!god.CheckIfPlayerInRange(bobRange))
+            if(!god.CheckIfTransformInRange(playerTransform, transform, bobRange))
             {
                 Bob();
             }

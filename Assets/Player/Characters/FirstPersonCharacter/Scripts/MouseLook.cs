@@ -1,8 +1,8 @@
 using System;
 using UnityEngine;
 
-namespace UnityStandardAssets.Characters.FirstPerson
-{
+//namespace UnityStandardAssets.Characters.FirstPerson
+//{
     [Serializable]
     public class MouseLook
     {
@@ -14,7 +14,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
         public bool smooth;
         public float smoothTime = 5f;
         public bool lockCursor = true;
-
 
         private Quaternion m_CharacterTargetRot;
         private Quaternion m_CameraTargetRot;
@@ -111,4 +110,4 @@ namespace UnityStandardAssets.Characters.FirstPerson
         }
 
     }
-}
+//}

@@ -10,10 +10,11 @@ public class God : MonoBehaviour
 
     bool playerAwake;
 
+    public bool descendingLadder = false;
+    public bool ladderControl = false;
     public bool playerControl = false;
 
     float interactionRange = 3f;
-
     float startingBoatYPosition = 2.2f;
 
     void Awake()
@@ -42,12 +43,12 @@ public class God : MonoBehaviour
             }
         }
 
-        if(Input.GetKeyDown(KeyCode.E))
+        if(Input.GetKeyDown(KeyCode.E) && !ladderControl)
         {
             if(playerControl)
             {
                 // embark on boat
-                bool boatInRange = CheckIfPlayerInRange(interactionRange);
+                bool boatInRange = CheckIfTransformInRange(playerCharacter.transform, boat.transform, interactionRange);
                 if (boatInRange)
                 {
                     // press 'e' to embark
@@ -78,13 +79,13 @@ public class God : MonoBehaviour
         }
     }
 
-    public bool CheckIfPlayerInRange(float range)
+    public bool CheckIfTransformInRange(Transform target, Transform source, float range)
     {
-        Collider[] hitColliders = Physics.OverlapSphere(playerCharacter.transform.position, range);
+        Collider[] hitColliders = Physics.OverlapSphere(target.position, range);
 
         foreach (Collider col in hitColliders)
         {
-            if (col.transform.Equals(boat.transform))
+            if (col.transform.Equals(source))
             {
                 return true;
             }
