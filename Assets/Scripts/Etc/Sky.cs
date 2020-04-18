@@ -6,7 +6,7 @@ using UnityEngine;
 public class Sky : MonoBehaviour
 {
     public float speed = 0.7f;
-    public float maxIntensity = 0.5f;
+    public float maxIntensity = 1f;
     private float runningTotal = 0f;
 
     private bool daytime;

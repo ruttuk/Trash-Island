@@ -16,5 +16,4 @@ public class Biome : ScriptableObject
     public float heightMultiplier;
     public AnimationCurve meshHeightCurve;
     public IslandData.IslandTerrain[] terrainTypes;
-    public Landmark[] landmarks;
 }

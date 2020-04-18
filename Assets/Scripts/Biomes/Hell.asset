@@ -141,27 +141,32 @@ MonoBehaviour:
     spawnableObjects:
     - {fileID: 11400000, guid: a13ff935426458540bcb4780ce218573, type: 2}
     - {fileID: 11400000, guid: 9e860656f2d2ae84d93eef1e5a16e212, type: 2}
+    - {fileID: 11400000, guid: 1f2b1f14e894ccf418a3e5fabe62fa7d, type: 2}
   - type: 2
     height: 0.3
     color: {r: 0.8773585, g: 0.4894977, b: 0.32694018, a: 0}
     spawnableObjects:
     - {fileID: 11400000, guid: f7d2aa50442ba034c8864ea05ac7eb82, type: 2}
+    - {fileID: 11400000, guid: 1f2b1f14e894ccf418a3e5fabe62fa7d, type: 2}
+    - {fileID: 11400000, guid: 221cadeff8e50d249951896d844d9386, type: 2}
   - type: 3
     height: 0.55
     color: {r: 0.38679248, g: 0.31198826, b: 0.38204303, a: 0}
     spawnableObjects:
     - {fileID: 11400000, guid: f7d2aa50442ba034c8864ea05ac7eb82, type: 2}
     - {fileID: 11400000, guid: cc59407756741af4caac0a5ea58addc7, type: 2}
+    - {fileID: 11400000, guid: 1f2b1f14e894ccf418a3e5fabe62fa7d, type: 2}
   - type: 3
     height: 0.8
     color: {r: 0.2735849, g: 0.18454076, b: 0.24546568, a: 0}
     spawnableObjects:
     - {fileID: 11400000, guid: f7d2aa50442ba034c8864ea05ac7eb82, type: 2}
+    - {fileID: 11400000, guid: 1f2b1f14e894ccf418a3e5fabe62fa7d, type: 2}
+    - {fileID: 11400000, guid: 1f2b1f14e894ccf418a3e5fabe62fa7d, type: 2}
   - type: 4
     height: 1
     color: {r: 0.5849056, g: 0.40005338, b: 0.40005338, a: 0}
     spawnableObjects:
-    - {fileID: 11400000, guid: cc59407756741af4caac0a5ea58addc7, type: 2}
     - {fileID: 11400000, guid: f7d2aa50442ba034c8864ea05ac7eb82, type: 2}
-  landmarks:
-  - {fileID: 11400000, guid: 270ffa4dc1603a54ebc11a58527c45e5, type: 2}
+    - {fileID: 11400000, guid: 1f2b1f14e894ccf418a3e5fabe62fa7d, type: 2}
+    - {fileID: 11400000, guid: 221cadeff8e50d249951896d844d9386, type: 2}

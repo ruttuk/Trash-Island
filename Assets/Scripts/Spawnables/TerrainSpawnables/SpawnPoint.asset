@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eacd385771fc2f14ab3eef757361ad22, type: 3}
+  m_Name: SpawnPoint
+  m_EditorClassIdentifier: 
+  spawnableName: Spawn Point
+  matchNormalAngle: 0
+  yOffset: -1
+  minPerIsland: 0
+  maxPerIsland: 4
+  objectVariations:
+  - {fileID: 841351215157887015, guid: 1c8268568d9e3984082bad8410127b40, type: 3}

@@ -6,6 +6,40 @@ public class Spawner : MonoBehaviour
 {
     const int regionSize = 1024;
 
+    public static void SpawnSpawnPoints()
+    {
+        GameObject[] spawnPoints = GameObject.FindGameObjectsWithTag("SPAWNPOINT");
+
+        int numSpawnPoints = spawnPoints.Length;
+
+        for(int i = 0; i < numSpawnPoints; i++)
+        {
+            spawnPoints[i].SetActive(false);
+        }
+
+        int numArtifacts = 8;
+
+        // pick 8 numbers between 0-spawnPoints.length
+
+        System.Random prng = new System.Random();
+        int index;
+
+        for (int i = 0; i < numArtifacts; i++)
+        {
+            index = prng.Next(0, 999999) % numSpawnPoints;
+
+            if(!spawnPoints[index].activeSelf)
+            {
+                Debug.Log("Setting spawn point active at index " + index);
+                spawnPoints[index].SetActive(true);
+            }
+            else
+            {
+                i--;
+            }
+        }
+    }
+
     /***
      * Given an island, try to sample a flat area to spawn the object.
      ***/

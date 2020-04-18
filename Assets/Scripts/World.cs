@@ -31,9 +31,10 @@ public class World : MonoBehaviour
     void Start()
     {
         CreateWorld();
-        CreateOcean();
+        //CreateOcean();
 
-        Spawner.SpawnLandmarks(regions, landmarks);
+        //Spawner.SpawnLandmarks(regions, landmarks);
+        //Spawner.SpawnSpawnPoints();
     }
 
     void CreateWorld()
@@ -43,9 +44,9 @@ public class World : MonoBehaviour
         MapDisplay mapDisplay = FindObjectOfType<MapDisplay>();
 
         regions[0] = regionGenerator.CreateRegion(regionSize, -halfRegion, -halfRegion, regionTransforms[0], mapDisplay);
-        regions[1] = regionGenerator.CreateRegion(regionSize, -halfRegion, halfRegion, regionTransforms[1], mapDisplay);
-        regions[2] = regionGenerator.CreateRegion(regionSize, halfRegion, -halfRegion, regionTransforms[2], mapDisplay);
-        regions[3] = regionGenerator.CreateRegion(regionSize, halfRegion, halfRegion, regionTransforms[3], mapDisplay);
+        //regions[1] = regionGenerator.CreateRegion(regionSize, -halfRegion, halfRegion, regionTransforms[1], mapDisplay);
+        //regions[2] = regionGenerator.CreateRegion(regionSize, halfRegion, -halfRegion, regionTransforms[2], mapDisplay);
+        //regions[3] = regionGenerator.CreateRegion(regionSize, halfRegion, halfRegion, regionTransforms[3], mapDisplay);
     }
 
     void CreateOcean()

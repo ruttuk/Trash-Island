@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class RegionGenerator : MonoBehaviour
 {
@@ -178,7 +179,31 @@ public class RegionGenerator : MonoBehaviour
             islandMeshes.Add(spawnedMesh);
             region.islands[i].islandMeshObject = spawnedMesh;
 
-            Spawner.SpawnTerrainObjectsOnIsland(region.islands[i], biome, spawnedMesh.transform);
+            // what if we try adding a navmeshvolumemod here?
+            SetObstacles(region.islands[i], spawnedMesh);
+
+            //Spawner.SpawnTerrainObjectsOnIsland(region.islands[i], biome, spawnedMesh.transform);
+        }
+    }
+
+    private void SetObstacles(Island island, GameObject spawnedMesh)
+    {
+        for(int x = 0; x < island.size; x += 4)
+        {
+            for (int y = 0; y < island.size; y += 4)
+            {
+                if(island.terrainMap[x, y] == IslandData.IslandTerrainType.Highlands || island.terrainMap[x, y] == IslandData.IslandTerrainType.Plateau)
+                {
+                    var go = new GameObject();
+                    NavMeshObstacle obstacle = go.AddComponent(typeof(NavMeshObstacle)) as NavMeshObstacle;
+                    go.transform.SetParent(spawnedMesh.transform);
+
+                    float half = island.size / 2f;
+                    obstacle.center = new Vector3(island.x - half + x, 2, island.y + half - y);
+                    obstacle.size = new Vector3(4, 4, 4);
+                    obstacle.carving = true;
+                }
+            }
         }
     }
 
