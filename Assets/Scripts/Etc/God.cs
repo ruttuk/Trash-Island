@@ -6,7 +6,7 @@ public class God : MonoBehaviour
 {
     public RegionGenerator regionGenerator;
     public Rigidbody playerCharacter;
-    public Rigidbody boat;
+    private Boat boat;
 
     bool playerAwake;
 
@@ -19,6 +19,8 @@ public class God : MonoBehaviour
 
     void Awake()
     {
+        boat = FindObjectOfType<Boat>();
+
         playerCharacter.isKinematic = true;
         playerCharacter.transform.SetParent(boat.transform);
         playerAwake = false;
@@ -35,8 +37,7 @@ public class God : MonoBehaviour
 
             if(randomOceanPosition != Vector3.negativeInfinity)
             {
-                boat.transform.position = new Vector3(randomOceanPosition.x, startingBoatYPosition, randomOceanPosition.z);
-                boat.velocity = Vector3.zero;
+                boat.SetInitialPositionAndVelocity(new Vector3(randomOceanPosition.x, startingBoatYPosition, randomOceanPosition.z));
                 playerCharacter.transform.position = new Vector3(randomOceanPosition.x, startingBoatYPosition + 1f, randomOceanPosition.z);
 
                 Debug.Log("Setting boat position at: " + randomOceanPosition);
@@ -57,8 +58,10 @@ public class God : MonoBehaviour
                     playerCharacter.transform.SetParent(boat.transform);
                     playerCharacter.isKinematic = true;
                     playerControl = false;
-                    boat.velocity = Vector3.zero;
-                    boat.isKinematic = false;
+
+                    boat.EmbarkBoat();
+                    //boat.velocity = Vector3.zero;
+                    //boat.isKinematic = false;
                 }
 
             }
@@ -68,8 +71,10 @@ public class God : MonoBehaviour
                 // disembark boat
                 playerCharacter.isKinematic = false;
                 playerControl = true;
-                boat.isKinematic = true; ;
+                //boat.isKinematic = true; ;
                 playerCharacter.transform.SetParent(null);
+
+                boat.DisembarkBoat();
             }
         }
 

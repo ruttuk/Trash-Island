@@ -2,11 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(NoiseTarget))]
 public class Boat : MonoBehaviour
 {
     public God god;
     public float turnForce = 2f;
     public float buckForce = 0.5f;
+
+    private NoiseTarget m_NoiseTarget;
 
     Rigidbody rb;
     float thrust = 15f;
@@ -23,6 +26,8 @@ public class Boat : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        m_NoiseTarget = GetComponent<NoiseTarget>();
+
         main = Camera.main;
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
     }
@@ -36,7 +41,7 @@ public class Boat : MonoBehaviour
 
             if(!Mathf.Approximately(x, 0))
             {
-                if(rb.velocity.magnitude > 0f)
+                if(rb.velocity.sqrMagnitude > 0f)
                 {
                     Vector3 turnAngle = Vector3.up * Time.deltaTime * x * turnForce;
                     transform.Rotate(turnAngle);
@@ -65,6 +70,20 @@ public class Boat : MonoBehaviour
                     rb.AddForce(targetDirection);
                 }
             }
+
+            // Boats moving, making a lotta noise.
+
+            if (rb.velocity.sqrMagnitude <= 0.1f)
+            {
+                if(m_NoiseTarget.targetActive)
+                {
+                    m_NoiseTarget.DeactivateTarget();
+                }
+            }
+            else
+            {
+                m_NoiseTarget.ActivateTarget(rb.velocity.magnitude / maxVelocity);
+            }
         }
         else
         {
@@ -73,6 +92,25 @@ public class Boat : MonoBehaviour
                 Bob();
             }
         }
+    }
+
+    public void SetInitialPositionAndVelocity(Vector3 position)
+    {
+        transform.position = position;
+        rb.velocity = Vector3.zero;
+    }
+
+    public void DisembarkBoat()
+    {
+        rb.velocity = Vector3.zero;
+        rb.isKinematic = true;
+        m_NoiseTarget.DeactivateTarget();
+    }
+
+    public void EmbarkBoat()
+    {
+        rb.velocity = Vector3.zero;
+        rb.isKinematic = false;
     }
 
     void Bob()

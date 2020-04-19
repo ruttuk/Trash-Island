@@ -87,7 +87,9 @@ using UnityEngine;
         private Vector3 m_GroundContactNormal;
         private bool m_Jump, m_PreviouslyGrounded, m_Jumping, m_IsGrounded;
 
+        // SHIT I ADDED :
         private God m_God;
+        private NoiseTarget m_NoiseTarget;
 
         public Vector3 Velocity
         {
@@ -122,6 +124,7 @@ using UnityEngine;
             m_RigidBody = GetComponent<Rigidbody>();
             m_Capsule = GetComponent<CapsuleCollider>();
             m_God = FindObjectOfType<God>();
+            m_NoiseTarget = GetComponent<NoiseTarget>();
             mouseLook.Init (transform, cam.transform);
         }
 
@@ -173,7 +176,16 @@ using UnityEngine;
                 {
                     m_RigidBody.AddForce(desiredMove * SlopeMultiplier(), ForceMode.Impulse);
                 }
+
+                m_NoiseTarget.ActivateTarget(input.magnitude);
             }
+            else
+                {
+                    if (m_NoiseTarget.targetActive)
+                    {
+                        m_NoiseTarget.DeactivateTarget();
+                    }
+                }
 
             if (m_IsGrounded)
             {
