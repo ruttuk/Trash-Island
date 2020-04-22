@@ -37,7 +37,7 @@
             {
                 v2f o;
                 o.vertex = UnityObjectToClipPos(v.vertex);
-				o.vertex.y -= _SinTime.w * 0.025;
+				o.vertex.y -= _SinTime.w * 0.05;
 				o.uv = TRANSFORM_TEX(v.uv, _MainTex);
 
                 return o;

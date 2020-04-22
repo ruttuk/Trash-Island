@@ -145,6 +145,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   noiseTargetData: {fileID: 11400000, guid: b309f4c82a42fe84e9037aab6e26cd74, type: 2}
   targetActive: 0
+  currentDecibels: 0
 --- !u!1 &3327288794838856106
 GameObject:
   m_ObjectHideFlags: 0
@@ -404,7 +405,7 @@ Transform:
   m_GameObject: {fileID: 7767109520498693841}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.4, y: 1.4, z: 1.4}
   m_Children:
   - {fileID: 5038613596088437049}
   m_Father: {fileID: 0}

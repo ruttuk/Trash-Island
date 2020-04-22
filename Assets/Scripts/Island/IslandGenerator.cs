@@ -16,6 +16,7 @@ public class IslandGenerator : MonoBehaviour
     [Header("Editor Settings")]
     public bool autoUpdate;
     public bool drawInEditor;
+    public bool saveTexureToPng;
     public Biome editorBiome;
 
     public Island GenerateIsland(Biome biome, IslandData.IslandMassData massData, MapDisplay display)
@@ -40,6 +41,14 @@ public class IslandGenerator : MonoBehaviour
         {
             display.DrawTexture(islandMapTexture);
             display.DrawMesh(islandMesh, islandMapTexture);
+
+            if(saveTexureToPng)
+            {
+                string _fullPath = Application.dataPath + "/Resources/Materials/MenuIslandMat/MenuIslandTexture.png";
+                byte[] _bytes = islandMapTexture.EncodeToPNG();
+                System.IO.File.WriteAllBytes(_fullPath, _bytes);
+                Debug.Log(_bytes.Length / 1024 + "Kb was saved as: " + _fullPath);
+            }
         }
 
         island.terrainMap = IslandData.GetTerrainsFromNoiseMap(massData.islandSize, noiseMap, biome);

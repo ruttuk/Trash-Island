@@ -182,7 +182,7 @@ public class RegionGenerator : MonoBehaviour
             // what if we try adding a navmeshvolumemod here?
             SetObstacles(region.islands[i], spawnedMesh);
 
-            //Spawner.SpawnTerrainObjectsOnIsland(region.islands[i], biome, spawnedMesh.transform);
+            Spawner.SpawnTerrainObjectsOnIsland(region.islands[i], biome, spawnedMesh.transform);
         }
     }
 
