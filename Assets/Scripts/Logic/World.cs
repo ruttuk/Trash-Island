@@ -26,16 +26,21 @@ public class World : MonoBehaviour
     void Awake()
     {
         regionGenerator = FindObjectOfType<RegionGenerator>();
-    }
 
-    void Start()
-    {
         CreateWorld();
-        //CreateOcean();
 
         Spawner.SpawnLandmarks(regions, landmarks);
         Spawner.SpawnSpawnPoints();
     }
+    /*
+    void Start()
+    {
+        CreateWorld();
+
+        Spawner.SpawnLandmarks(regions, landmarks);
+        Spawner.SpawnSpawnPoints();
+    }
+    */
 
     void CreateWorld()
     {

@@ -20,6 +20,7 @@ public class Spawner : MonoBehaviour
         int numArtifacts = 8;
 
         // pick 8 numbers between 0-spawnPoints.length
+        // These will be artifacts. 
 
         System.Random prng = new System.Random();
         int index;
@@ -32,6 +33,9 @@ public class Spawner : MonoBehaviour
             {
                 Debug.Log("Setting spawn point active at index " + index);
                 spawnPoints[index].SetActive(true);
+
+                // IMPORTANT: We can choose these spawn points to be artifacts, in which we add the artifact component.
+                spawnPoints[index].AddComponent<Artifact>();
             }
             else
             {

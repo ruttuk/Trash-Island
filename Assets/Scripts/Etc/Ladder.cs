@@ -45,7 +45,7 @@ public class Ladder : MonoBehaviour
     {
         if(m_God.playerControl && !cooldown)
         {
-            if (m_God.CheckIfTransformInRange(player.transform, transform, ladderRange) && !m_God.ladderControl)
+            if (Utility.CheckIfTransformInRange(player.transform, transform, ladderRange) && !m_God.ladderControl)
             {
                 player.isKinematic = true;
                 m_God.ladderControl = true;

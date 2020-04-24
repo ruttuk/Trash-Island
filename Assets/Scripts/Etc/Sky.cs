@@ -12,7 +12,8 @@ public class Sky : MonoBehaviour
     private bool daytime;
     private bool rising;
     Light skylight;
-    float lightIntensityAdjuster;
+
+    private float lightIntensityAdjuster = 0.005f;
 
     // Start is called before the first frame update
     void Start()
@@ -22,7 +23,6 @@ public class Sky : MonoBehaviour
         skylight.color = Color.green;
         skylight.intensity = 0;
         rising = true;
-        lightIntensityAdjuster = 0.01f;
     }
 
     void FixedUpdate()
@@ -55,10 +55,6 @@ public class Sky : MonoBehaviour
 
         float rot = Time.deltaTime * speed;
         transform.Rotate(Vector3.right, rot);
-
-        if(skylight.intensity < maxIntensity && skylight.intensity >= 0f)
-        {
-            skylight.intensity += Time.deltaTime * lightIntensityAdjuster;
-        }
+        skylight.intensity += Time.deltaTime * lightIntensityAdjuster;
     }
 }

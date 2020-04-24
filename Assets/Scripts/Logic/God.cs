@@ -49,7 +49,7 @@ public class God : MonoBehaviour
             if(playerControl)
             {
                 // embark on boat
-                bool boatInRange = CheckIfTransformInRange(playerCharacter.transform, boat.transform, interactionRange);
+                bool boatInRange = Utility.CheckIfTransformInRange(playerCharacter.transform, boat.transform, interactionRange);
                 if (boatInRange)
                 {
                     // press 'e' to embark
@@ -82,19 +82,5 @@ public class God : MonoBehaviour
         {
             Debug.Break();
         }
-    }
-
-    public bool CheckIfTransformInRange(Transform target, Transform source, float range)
-    {
-        Collider[] hitColliders = Physics.OverlapSphere(target.position, range);
-
-        foreach (Collider col in hitColliders)
-        {
-            if (col.transform.Equals(source))
-            {
-                return true;
-            }
-        }
-        return false;
     }
 }

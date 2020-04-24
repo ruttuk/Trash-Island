@@ -5,7 +5,6 @@ using UnityEngine;
 [RequireComponent(typeof(NoiseTarget))]
 public class Boat : MonoBehaviour
 {
-    public God god;
     public float turnForce = 2f;
     public float buckForce = 0.5f;
 
@@ -22,11 +21,13 @@ public class Boat : MonoBehaviour
 
     Camera main;
     Transform playerTransform;
+    God god;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         m_NoiseTarget = GetComponent<NoiseTarget>();
+        god = FindObjectOfType<God>();
 
         main = Camera.main;
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
@@ -87,7 +88,7 @@ public class Boat : MonoBehaviour
         }
         else
         {
-            if(!god.CheckIfTransformInRange(playerTransform, transform, bobRange))
+            if(!Utility.CheckIfTransformInRange(playerTransform, transform, bobRange))
             {
                 Bob();
             }
