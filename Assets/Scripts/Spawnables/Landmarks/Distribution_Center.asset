@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f98bcfd10475d046b2902a67d80b7c8, type: 3}
   m_Name: Distribution_Center
   m_EditorClassIdentifier: 
-  size: 15
-  position: {x: -271, y: 15.409666, z: 220}
+  yOffset: 0.2
+  boundX: 25
+  boundZ: 15
+  position: {x: -61, y: 12.409666, z: 297}
   openWater: 0
   flat: 1
   landmarkObject: {fileID: 5568420471752788533, guid: 781559887d87d4244b134849248fcb2c,

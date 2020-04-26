@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0f98bcfd10475d046b2902a67d80b7c8, type: 3}
-  m_Name: Oil_Rig
+  m_Name: Water_Tower
   m_EditorClassIdentifier: 
-  yOffset: 12
-  boundX: 50
-  boundZ: 50
-  openWater: 1
-  flat: 0
-  landmarkObject: {fileID: 3898767161646627801, guid: a704850afd90aa9428889672d011da08,
+  yOffset: 5.2
+  boundX: 7
+  boundZ: 7
+  openWater: 0
+  flat: 1
+  landmarkObject: {fileID: 3721881149144527968, guid: 6698b20dddfad1a41b2b145925f320b1,
     type: 3}

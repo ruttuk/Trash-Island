@@ -6,8 +6,14 @@ using UnityEngine;
 public class Landmark : ScriptableObject
 {
     public float yOffset;
-    public int size;
-    public Vector3 position;
+
+    // important for spawning in the right place. 
+    // try placing a box collider on the mesh temporarily to get the bounds without instantiating.
+
+    public int boundX;
+    public int boundZ;
+
+    //public Vector3 position;
     // Is the landmark spawned in open water or within the bounds of an island?
     public bool openWater;
     // Should the landmark be spawned on a flat mesh area?

@@ -14,6 +14,8 @@ public class God : MonoBehaviour
     public bool ladderControl = false;
     public bool playerControl = false;
 
+    public Ladder ladderInUse;
+
     float interactionRange = 3f;
     float startingBoatYPosition = 2.2f;
 
@@ -71,8 +73,11 @@ public class God : MonoBehaviour
                 // disembark boat
                 playerCharacter.isKinematic = false;
                 playerControl = true;
-                //boat.isKinematic = true; ;
                 playerCharacter.transform.SetParent(null);
+                var rot = playerCharacter.transform.rotation;
+                // prevent player rotation changing when embarking/disembarking
+                playerCharacter.transform.forward = Camera.main.transform.forward;
+                playerCharacter.rotation = rot;
 
                 boat.DisembarkBoat();
             }

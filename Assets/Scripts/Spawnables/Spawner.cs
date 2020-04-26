@@ -47,7 +47,7 @@ public class Spawner : MonoBehaviour
     /***
      * Given an island, try to sample a flat area to spawn the object.
      ***/
-    public static Vector3 SpawnObjectOnFlatArea(Island island, GameObject spawnedObject)
+    public static Vector3 SpawnObjectOnFlatArea(Island island, Landmark landmark)
     {
         float centerX = island.x / 2f;
         float centerY = island.y / 2f;
@@ -56,6 +56,7 @@ public class Spawner : MonoBehaviour
         Vector2 actualPos;
         Vector3 spawnPos = Vector3.zero;
 
+        /*
         int boundX, boundY, boundZ;
 
         Bounds bounds = spawnedObject.GetComponentInChildren<MeshCollider>().bounds;
@@ -63,7 +64,7 @@ public class Spawner : MonoBehaviour
         boundX = Mathf.RoundToInt(bounds.size.x);
         boundY = Mathf.RoundToInt(bounds.size.y / 2f);
         boundZ = Mathf.RoundToInt(bounds.size.z);
-
+        */
         for (int x = 0; x < island.size; x += spacing)
         {
             for (int y = 0; y < island.size; y += spacing)
@@ -72,12 +73,12 @@ public class Spawner : MonoBehaviour
                 actualPos.x = island.x - half + x;
                 actualPos.y = island.y + half - y;
 
-                spawnPos = GetFlatArea(actualPos, boundX, boundZ);
+                spawnPos = GetFlatArea(actualPos, landmark.boundX, landmark.boundZ);
 
                 if (spawnPos != Vector3.zero)
                 {
                     Debug.Log("SPAWNING FLAT LANDMARK! at " + spawnPos);
-                    //spawnPos.y += boundY;
+                    spawnPos.y += landmark.yOffset;
                     //spawnedObject.transform.localPosition = spawnPos;
 
                     return spawnPos;
@@ -232,63 +233,93 @@ public class Spawner : MonoBehaviour
             }
         }
 
-        GameObject[] spawnedFlatLandmarks = new GameObject[flatLandmarks.Count];
-        GameObject[] spawnedOtherLandmarks = new GameObject[otherLandmarks.Count];
+        Debug.Log($"Other landmarks count: {otherLandmarks.Count}");
+        Debug.Log($"Flat landmarks count: {flatLandmarks.Count}");
+
+        //List<GameObject> spawnedFlatLandmarks = new List<GameObject>(); //[flatLandmarks.Count];
+        List<GameObject> spawnedOtherLandmarks = new List<GameObject>(); //[otherLandmarks.Count];
 
         // Now let's actually spawn all the landmarks.
         // We do it this way so that we can access the instantiated collider, getting the world space bounds.
-
-        for (int i = 0; i < spawnedFlatLandmarks.Length; i++)
+        // NOTE: Not actually doing it this way anymore.
+        // This code blows chunks. FIX IT
+        /*
+        for (int i = 0; i < flatLandmarks.Count; i++)
         {
-            spawnedFlatLandmarks[i] = Instantiate(flatLandmarks[i].landmarkObject, Vector3.zero, Quaternion.identity);
+            spawnedFlatLandmarks.Add(Instantiate(flatLandmarks[i].landmarkObject, Vector3.zero, Quaternion.identity));
         }
-
-        for (int i = 0; i < spawnedOtherLandmarks.Length; i++)
+        */
+        for (int i = 0; i < otherLandmarks.Count; i++)
         {
-            spawnedOtherLandmarks[i] = Instantiate(otherLandmarks[i].landmarkObject, Vector3.zero, Quaternion.identity);
+            spawnedOtherLandmarks.Add(Instantiate(otherLandmarks[i].landmarkObject, Vector3.zero, Quaternion.identity));
         }
 
         // Now let's loop through our regions, and for each region, let's loop through all the islands and check for a flat area.
-        int landmarkIndex = 0;
+        int flatLandmarkIndex = 0;
         Vector3 spawnPos;
 
         for (int i = 0; i < numRegions; i++)
         {
             for (int j = 0; j < regions[i].islands.Count; j++)
             {
-                spawnPos = SpawnObjectOnFlatArea(regions[i].islands[j], spawnedFlatLandmarks[landmarkIndex]);
+                Debug.Log($"Trying to spawn {flatLandmarks[flatLandmarkIndex].name}...");
+                spawnPos = SpawnObjectOnFlatArea(regions[i].islands[j], flatLandmarks[flatLandmarkIndex]);
 
                 if (spawnPos != Vector3.zero)
                 {
                     Debug.Log("Spawning flat landmark!");
 
-                    spawnedFlatLandmarks[landmarkIndex].transform.position = spawnPos;
-                    flatLandmarks[landmarkIndex].position = spawnPos;
-                    regions[i].landmarks.Add(flatLandmarks[landmarkIndex]);
+                    Instantiate(flatLandmarks[flatLandmarkIndex].landmarkObject, spawnPos, Quaternion.identity);
+                    //spawnedFlatLandmarks[flatLandmarkIndex].transform.position = spawnPos;
+                    //flatLandmarks[flatLandmarkIndex].position = spawnPos;
+                    regions[i].landmarks.Add(flatLandmarks[flatLandmarkIndex]);
+                    flatLandmarkIndex++;
 
-                    landmarkIndex++;
-
-                    if (landmarkIndex >= flatLandmarks.Count)
+                    if (flatLandmarkIndex >= flatLandmarks.Count)
                     {
+                        Debug.Log("We've placed all flat landmarks.");
                         // we've found a place for all the flat landmarks!
                         i = numRegions;
                         break;
                     }
                 }
+                else
+                {
+                    Debug.Log($"No flat area in region {i}, island {j}");
+                }
             }
         }
 
+        // convert all the remaining flat landmarks (that we couldnt find flat area for) to open water
+        for(int i = flatLandmarkIndex; i < flatLandmarks.Count; i++)
+        {
+            otherLandmarks.Add(flatLandmarks[i]);
+            //spawnedOtherLandmarks.Add(spawnedFlatLandmarks[i]);
+        }
+
         int maxLandmarksPerRegion = 2;
-        int regionIndex = 0;
+        int startingRegionIndex = 0;
+
+        // Since we spawned all the flat landmarks first, let's see which region we should start in.
+        for(int i = 0; i < regions.Length; i++)
+        {
+            if(regions[i].landmarks.Count == maxLandmarksPerRegion)
+            {
+                startingRegionIndex++;
+            }
+        }
+
         bool spawned;
 
         // So now that we're done with the flat landmarks, go through the rest of the landmarks.
         // We spawn by region until each region is at their max # of landmarks.
+
         for (int i = 0; i < otherLandmarks.Count; i++)
         {
             if (otherLandmarks[i].openWater)
             {
-                spawned = SpawnLandmarkInOpenWater(regions[regionIndex], spawnedOtherLandmarks[i], otherLandmarks[i]);
+                Debug.Log($"Trying to spawn {otherLandmarks[i].name} in region {startingRegionIndex}");
+                spawned = SpawnLandmarkInOpenWater(regions[startingRegionIndex], spawnedOtherLandmarks[i], otherLandmarks[i]);
 
                 if (!spawned)
                 {
@@ -300,12 +331,12 @@ public class Spawner : MonoBehaviour
                 // TODO: address non-flat, non-open water landmarks.
             }
 
-            if (regions[regionIndex].landmarks.Count == maxLandmarksPerRegion)
+            if (regions[startingRegionIndex].landmarks.Count == maxLandmarksPerRegion)
             {
-                regionIndex++;
+                startingRegionIndex++;
             }
 
-            if (regionIndex >= numRegions)
+            if (startingRegionIndex >= numRegions)
             {
                 break;
             }
@@ -321,16 +352,11 @@ public class Spawner : MonoBehaviour
         int halfSize;
         int coorX, coorZ;
 
-        //Bounds spawnedLandmarkBounds;
-        //int boundX, boundZ;
-
         Vector3 spawnPos;
 
-        //spawnedLandmarkBounds = spawnedLandmark.GetComponent<Collider>().bounds;
-        //boundX = Mathf.RoundToInt(spawnedLandmarkBounds.size.x);
-        //boundZ = Mathf.RoundToInt(spawnedLandmarkBounds.size.z);
-
-        halfSize = landmark.size / 2; //boundX > boundZ ? boundX / 2 : boundZ / 2;
+        // Take the larger of the bounds and use that size for spawning.
+        int largerBound = landmark.boundX > landmark.boundZ ? landmark.boundX : landmark.boundZ;
+        halfSize = largerBound/ 2;
 
         int numTries = 4;
 
@@ -342,7 +368,7 @@ public class Spawner : MonoBehaviour
             if (CheckForOverlap(region, coorX, coorZ, halfSize * 2))
             {
                 spawnPos = new Vector3(coorX, landmark.yOffset, coorZ);
-                landmark.position = spawnPos;
+                //landmark.position = spawnPos;
                 spawnedLandmark.transform.position = spawnPos;
                 Debug.Log("Spawning in open water...");
 

@@ -168,8 +168,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   landmarks:
-  - {fileID: 11400000, guid: 270ffa4dc1603a54ebc11a58527c45e5, type: 2}
   - {fileID: 11400000, guid: 680b2763d0397f44798184c9489f7ece, type: 2}
+  - {fileID: 11400000, guid: 270ffa4dc1603a54ebc11a58527c45e5, type: 2}
+  - {fileID: 11400000, guid: 4da27b72eb174aa46a7c8cc8066e3042, type: 2}
   regionTransforms:
   - {fileID: 704592090}
   - {fileID: 133434544}
@@ -362,12 +363,17 @@ PrefabInstance:
     - target: {fileID: 5977349332808116669, guid: df56a73937488aa4bbeed384cd4db50e,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 200
+      value: 256
       objectReference: {fileID: 0}
     - target: {fileID: 5977349332808116669, guid: df56a73937488aa4bbeed384cd4db50e,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 200
+      value: 256
+      objectReference: {fileID: 0}
+    - target: {fileID: 5977349332808116669, guid: df56a73937488aa4bbeed384cd4db50e,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6736816337471133468, guid: df56a73937488aa4bbeed384cd4db50e,
         type: 3}
@@ -1309,12 +1315,12 @@ PrefabInstance:
     - target: {fileID: 8390710700921860688, guid: 6b92f389891c10e46bf0dbf01d53e9d8,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 200
+      value: 256
       objectReference: {fileID: 0}
     - target: {fileID: 8390710700921860688, guid: 6b92f389891c10e46bf0dbf01d53e9d8,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 200
+      value: 256
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b92f389891c10e46bf0dbf01d53e9d8, type: 3}
@@ -2041,6 +2047,14 @@ PrefabInstance:
       propertyPath: m_Height
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 13600000, guid: c6453f8e1f814744d8b94e5a6d1f9942, type: 3}
+      propertyPath: m_Radius
+      value: 0.19857386
+      objectReference: {fileID: 0}
+    - target: {fileID: 13600000, guid: c6453f8e1f814744d8b94e5a6d1f9942, type: 3}
+      propertyPath: m_Center.x
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 1342982410983380482, guid: c6453f8e1f814744d8b94e5a6d1f9942,
         type: 3}
       propertyPath: boat
@@ -2198,6 +2212,7 @@ MonoBehaviour:
   descendingLadder: 0
   ladderControl: 0
   playerControl: 0
+  ladderInUse: {fileID: 0}
 --- !u!1001 &2088757688
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2268,12 +2283,12 @@ PrefabInstance:
     - target: {fileID: 8390710700921860688, guid: b63a4a8ad2407a2458068f78c1d031a1,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 200
+      value: 256
       objectReference: {fileID: 0}
     - target: {fileID: 8390710700921860688, guid: b63a4a8ad2407a2458068f78c1d031a1,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 200
+      value: 256
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b63a4a8ad2407a2458068f78c1d031a1, type: 3}

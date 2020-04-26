@@ -1,57 +1,8 @@
 fileFormatVersion: 2
 guid: e07fe27f477906a47b5dcf445dd305b9
 ModelImporter:
-  serializedVersion: 23
-  fileIDToRecycleName:
-    100000: Barrier
-    100002: Boom_Crane
-    100004: Boom_Crane_Base
-    100006: Derrick
-    100008: Entrance
-    100010: Ladder
-    100012: Ladder_Base
-    100014: //RootNode
-    100016: Platform
-    100018: Support
-    400000: Barrier
-    400002: Boom_Crane
-    400004: Boom_Crane_Base
-    400006: Derrick
-    400008: Entrance
-    400010: Ladder
-    400012: Ladder_Base
-    400014: //RootNode
-    400016: Platform
-    400018: Support
-    2100000: Material
-    2100002: No Name
-    2300000: Barrier
-    2300002: Boom_Crane
-    2300004: Boom_Crane_Base
-    2300006: Derrick
-    2300008: Entrance
-    2300010: Ladder
-    2300012: Ladder_Base
-    2300014: Platform
-    2300016: Support
-    3300000: Barrier
-    3300002: Boom_Crane
-    3300004: Boom_Crane_Base
-    3300006: Derrick
-    3300008: Entrance
-    3300010: Ladder
-    3300012: Ladder_Base
-    3300014: Platform
-    3300016: Support
-    4300000: Platform
-    4300002: Boom_Crane
-    4300004: Derrick
-    4300006: Support
-    4300008: Boom_Crane_Base
-    4300010: Ladder_Base
-    4300012: Ladder
-    4300014: Barrier
-    4300016: Entrance
+  serializedVersion: 26
+  internalIDToNameTable: []
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -80,13 +31,14 @@ ModelImporter:
     extraExposedTransformPaths: []
     extraUserProperties: []
     clipAnimations: []
-    isReadable: 1
+    isReadable: 0
   meshes:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
@@ -94,18 +46,19 @@ ModelImporter:
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
-    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
     preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
     indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
-    previousCalculatedGlobalScale: 1
-    hasPreviousCalculatedGlobalScale: 0
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
@@ -114,10 +67,11 @@ ModelImporter:
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
+  referencedClips: []
   importAnimation: 1
   copyAvatar: 0
   humanDescription:
-    serializedVersion: 2
+    serializedVersion: 3
     human: []
     skeleton: []
     armTwist: 0.5
@@ -127,6 +81,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
+    globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
