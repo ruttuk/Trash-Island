@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0f98bcfd10475d046b2902a67d80b7c8, type: 3}
-  m_Name: Water_Tower
+  m_Name: Power_Plant
   m_EditorClassIdentifier: 
-  yOffset: 4.9
-  boundX: 15
-  boundZ: 15
-  openWater: 0
-  flat: 1
-  landmarkObject: {fileID: 3721881149144527968, guid: 6698b20dddfad1a41b2b145925f320b1,
+  yOffset: 1
+  boundX: 45
+  boundZ: 55
+  openWater: 1
+  flat: 0
+  landmarkObject: {fileID: 5192672036767672268, guid: 99a6925f32220d24c96c60f1ac63d8d7,
     type: 3}

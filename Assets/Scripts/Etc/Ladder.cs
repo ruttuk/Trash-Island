@@ -50,9 +50,12 @@ public class Ladder : MonoBehaviour
         // 1. player is currently in control.
         // 2. ladder is not in cooldown state.
         // 3. ladder is either not in use, or the currently used ladder is this one or our sibling.
-        if (m_God.playerControl && !cooldown && (m_God.ladderInUse == null || m_God.ladderInUse == this || m_God.ladderInUse == sibling))
+        if(Utility.CheckIfTransformInRange(player.transform, transform, 5f))
         {
-            CheckLadderStatus();
+            if (m_God.playerControl && !cooldown && (m_God.ladderInUse == null || m_God.ladderInUse == this || m_God.ladderInUse == sibling))
+            {
+                CheckLadderStatus();
+            }
         }
     }
 
@@ -90,6 +93,6 @@ public class Ladder : MonoBehaviour
 
         higherCollider.isTrigger = true;
         cooldown = false;
-        Debug.Log("Cooldowns over...");
+        //Debug.Log("Cooldowns over...");
     }
 }
