@@ -14,7 +14,6 @@ public class World : MonoBehaviour
     public Biome[] biomes = new Biome[numRegions];
 
     const float seaLevel = 2f;
-    const int regionSize = 1024;
 
     void Awake()
     {
@@ -30,13 +29,13 @@ public class World : MonoBehaviour
 
     void CreateWorld()
     {
-        int halfRegion = regionSize / 2;
+        int halfRegion = Spawner.regionSize / 2;
         MapDisplay mapDisplay = FindObjectOfType<MapDisplay>();
 
-        regions[0] = regionGenerator.CreateRegion(regionSize, -halfRegion, -halfRegion, regionTransforms[0], mapDisplay, biomes[0]);
-        regions[1] = regionGenerator.CreateRegion(regionSize, -halfRegion, halfRegion, regionTransforms[1], mapDisplay, biomes[1]);
-        regions[2] = regionGenerator.CreateRegion(regionSize, halfRegion, -halfRegion, regionTransforms[2], mapDisplay, biomes[2]);
-        regions[3] = regionGenerator.CreateRegion(regionSize, halfRegion, halfRegion, regionTransforms[3], mapDisplay, biomes[3]);
+        regions[0] = regionGenerator.CreateRegion(Spawner.regionSize, -halfRegion, -halfRegion, regionTransforms[0], mapDisplay, biomes[0]);
+        regions[1] = regionGenerator.CreateRegion(Spawner.regionSize, -halfRegion, halfRegion, regionTransforms[1], mapDisplay, biomes[1]);
+        regions[2] = regionGenerator.CreateRegion(Spawner.regionSize, halfRegion, -halfRegion, regionTransforms[2], mapDisplay, biomes[2]);
+        regions[3] = regionGenerator.CreateRegion(Spawner.regionSize, halfRegion, halfRegion, regionTransforms[3], mapDisplay, biomes[3]);
     }
 
     /*

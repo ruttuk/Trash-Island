@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1928856305766967391}
   - component: {fileID: 6813963757788802959}
   - component: {fileID: 1997544409370286689}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Hull
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -128,9 +128,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e39feb2251d01c14097177f518f41071, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  god: {fileID: 0}
   turnForce: 50
   buckForce: 0.5
+  slowDownForce: 5
 --- !u!114 &1997544409370286689
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -157,7 +157,7 @@ GameObject:
   - component: {fileID: 4351576492774904145}
   - component: {fileID: 8147021693587204665}
   - component: {fileID: 7229421927278904946}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Storage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -235,7 +235,7 @@ GameObject:
   - component: {fileID: 6046294316608641192}
   - component: {fileID: 5728526209818971165}
   - component: {fileID: 810184525840317919}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -313,7 +313,7 @@ GameObject:
   - component: {fileID: 486595693634501126}
   - component: {fileID: 2716768929810755921}
   - component: {fileID: 1518309832557463441}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Motor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -389,7 +389,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2148953972459046470}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Motorboat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -422,7 +422,7 @@ GameObject:
   - component: {fileID: 359168338757795734}
   - component: {fileID: 894884743675167136}
   - component: {fileID: 4114484914901961601}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Storage (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -501,6 +501,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: boatLantern
       objectReference: {fileID: 0}
+    - target: {fileID: 1414926977272279985, guid: d6c0ba7b13e5324409c48ec51eb0b436,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 3910100196312920636, guid: d6c0ba7b13e5324409c48ec51eb0b436,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -570,6 +575,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.0016779999
+      objectReference: {fileID: 0}
+    - target: {fileID: 4793835948731882008, guid: d6c0ba7b13e5324409c48ec51eb0b436,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 8136278720026429492, guid: d6c0ba7b13e5324409c48ec51eb0b436,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 8983786977683033857, guid: d6c0ba7b13e5324409c48ec51eb0b436,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d6c0ba7b13e5324409c48ec51eb0b436, type: 3}

@@ -17,7 +17,7 @@ public class Artifact : MonoBehaviour
     }
 
     void Update()
-    {
+    {        
         if(Utility.CheckIfTransformInRange(player, transform, addToInventoryRange))
         {
             Debug.Log("Player is in range of artifact! Adding to item box.");

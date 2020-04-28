@@ -42,9 +42,21 @@ public class RegionGenerator : MonoBehaviour
         return region;
     }
 
+    const float landMassMaxPercentage = 0.75f;
+
     void SetTotalLandMass(int regionSize)
     {
-        System.Random prng = new System.Random();
+        // total land mass limit should be like 3/4 of the region
+
+        totalLandMass = Mathf.RoundToInt(regionSize * biome.landMassPercentage);
+
+        if (totalLandMass % 2 != 0)
+        {
+            totalLandMass -= 1;
+        }
+
+        maxIslandSize = 250;
+        /*
         totalLandMass = Mathf.RoundToInt(biome.landMassPercentage * regionSize);
 
         if(totalLandMass % 2 != 0)
@@ -63,6 +75,7 @@ public class RegionGenerator : MonoBehaviour
         {
             maxIslandSize -= 1;
         }
+        */
     }
 
     void SetIslandMasses()

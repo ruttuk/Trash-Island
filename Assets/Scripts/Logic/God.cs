@@ -6,6 +6,7 @@ public class God : MonoBehaviour
 {
     public RegionGenerator regionGenerator;
     public Rigidbody playerCharacter;
+    public Transform lantern;
     private Boat boat;
 
     bool playerAwake;
@@ -57,9 +58,11 @@ public class God : MonoBehaviour
                     // press 'e' to embark
                     Debug.Log("Boat in range! Embarking...");
                     playerCharacter.transform.position = new Vector3(boat.transform.position.x, startingBoatYPosition + 1f, boat.transform.position.z);
-                    playerCharacter.transform.SetParent(boat.transform);
+                    //playerCharacter.transform.SetParent(boat.transform);
+                    //playerCharacter.transform.rotation = Quaternion.identity;
                     playerCharacter.isKinematic = true;
                     playerControl = false;
+                    playerCharacter.GetComponent<Light>().intensity = 0f;
 
                     boat.EmbarkBoat();
                     //boat.velocity = Vector3.zero;
@@ -73,11 +76,9 @@ public class God : MonoBehaviour
                 // disembark boat
                 playerCharacter.isKinematic = false;
                 playerControl = true;
-                playerCharacter.transform.SetParent(null);
-                var rot = playerCharacter.transform.rotation;
-                // prevent player rotation changing when embarking/disembarking
-                playerCharacter.transform.forward = Camera.main.transform.forward;
-                playerCharacter.rotation = rot;
+                //playerCharacter.transform.SetParent(null);
+                //playerCharacter.transform.rotation = Quaternion.Euler(0f, Mathf.Abs(boat.transform.rotation.eulerAngles.y), 0f);
+                playerCharacter.GetComponent<Light>().intensity = 2f;
 
                 boat.DisembarkBoat();
             }

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnableName: Shopping Cart
   matchNormalAngle: 1
-  yOffset: 0
+  yOffset: -0.2
   minPerIsland: 2
   maxPerIsland: 10
   objectVariations:

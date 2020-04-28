@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    const int regionSize = 1024;
+    public const int regionSize = 512;
 
     public static void SpawnSpawnPoints()
     {

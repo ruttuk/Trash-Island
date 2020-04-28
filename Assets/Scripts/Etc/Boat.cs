@@ -8,11 +8,13 @@ public class Boat : MonoBehaviour
     public float turnForce = 2f;
     public float buckForce = 0.5f;
 
+    public float slowDownForce = 5f;
+
     private NoiseTarget m_NoiseTarget;
 
     Rigidbody rb;
     float thrust = 15f;
-    float maxVelocity = 11f;
+    float maxVelocity = 17f;
 
     float bobiness = 0.005f;
     float bobLimit = 0.03f;
@@ -48,6 +50,9 @@ public class Boat : MonoBehaviour
                     transform.Rotate(turnAngle);
                     Quaternion currentRot = transform.rotation;
 
+                    // let's rotate the boat around it's right axis by turn angle
+
+                    /*
                     Vector3 targetAngle = transform.forward;
 
                     if (targetAngle.z < 10f)
@@ -56,9 +61,10 @@ public class Boat : MonoBehaviour
                         Quaternion targetRot = Quaternion.Euler(targetAngle);
                         transform.rotation = Quaternion.RotateTowards(currentRot, targetRot, Time.deltaTime * buckForce);
                     }
+                    */
 
                     Vector3 velocity = rb.velocity;
-                    rb.velocity = Vector3.zero;
+                    //rb.velocity = Vector3.zero;
                     rb.velocity = transform.forward * velocity.magnitude;
                 }
             }
@@ -68,12 +74,13 @@ public class Boat : MonoBehaviour
                 if (rb.velocity.magnitude < maxVelocity)
                 {
                     Vector3 targetDirection = transform.forward * y * thrust;
+
                     rb.AddForce(targetDirection);
                 }
             }
 
             // Boats moving, making a lotta noise.
-
+            /*
             if (rb.velocity.sqrMagnitude <= 0.1f)
             {
                 if(m_NoiseTarget.targetActive)
@@ -85,6 +92,7 @@ public class Boat : MonoBehaviour
             {
                 m_NoiseTarget.ActivateTarget(rb.velocity.magnitude / maxVelocity);
             }
+            */
         }
         else
         {
@@ -105,7 +113,7 @@ public class Boat : MonoBehaviour
     {
         rb.velocity = Vector3.zero;
         rb.isKinematic = true;
-        m_NoiseTarget.DeactivateTarget();
+        //m_NoiseTarget.DeactivateTarget();
     }
 
     public void EmbarkBoat()

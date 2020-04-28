@@ -123,9 +123,9 @@
 
 		float4 frag(v2f i) : SV_Target
 		{
-			// Retrieve the current depth value of the surface behind the
-			// pixel we are currently rendering.
-			float existingDepth01 = tex2Dproj(_CameraDepthTexture, UNITY_PROJ_COORD(i.screenPosition)).r;
+		// Retrieve the current depth value of the surface behind the
+		// pixel we are currently rendering.
+		float existingDepth01 = tex2Dproj(_CameraDepthTexture, UNITY_PROJ_COORD(i.screenPosition)).r;
 		// Convert the depth from non-linear 0...1 range to linear
 		// depth, in Unity units.
 		float existingDepthLinear = LinearEyeDepth(existingDepth01);
