@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Artifact : MonoBehaviour
 {
-    private const float addToInventoryRange = 0.5f;
+    private const float addToInventoryRange = 0.8f;
     private const string playerTag = "Player";
 
     private Transform player;

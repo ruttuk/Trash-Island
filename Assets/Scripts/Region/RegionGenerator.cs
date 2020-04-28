@@ -11,18 +11,25 @@ public class RegionGenerator : MonoBehaviour
 
     public bool autoUpdate;
     public IslandGenerator islandGenerator;
-    public Biome biome;
+    //public Biome biome;
+    private Biome biome;
+
     public GameObject islandMeshPrefab;
 
     private int maxIslandSize;
     private int totalLandMass;
 
+    // editor setting
+    public Biome editorBiome;
+
     List<GameObject> islandMeshes;
     List<IslandData.IslandMassData> islandMassDataList = new List<IslandData.IslandMassData>();
 
-    public Region CreateRegion(int regionSize, int worldOffsetX, int worldOffsetY, Transform regionTransform, MapDisplay mapDisplay)
+    public Region CreateRegion(int regionSize, int worldOffsetX, int worldOffsetY, Transform regionTransform, MapDisplay mapDisplay, Biome biome)
     {
         Region region = new Region(regionSize, biome, worldOffsetX, worldOffsetY);
+
+        this.biome = biome;
 
         // Important that they should happen in this order.
         SetTotalLandMass(regionSize);

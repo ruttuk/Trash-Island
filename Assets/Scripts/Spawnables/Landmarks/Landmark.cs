@@ -6,7 +6,7 @@ using UnityEngine;
 public class Landmark : ScriptableObject
 {
     public float yOffset;
-
+    public float yRotAngle;
     // important for spawning in the right place. 
     // try placing a box collider on the mesh temporarily to get the bounds without instantiating.
 
@@ -18,5 +18,8 @@ public class Landmark : ScriptableObject
     public bool openWater;
     // Should the landmark be spawned on a flat mesh area?
     public bool flat;
+    // How flat of a flat area should the landmark be spawned on?
+    public float flatnessModifier = 0.25f;
+
     public GameObject landmarkObject;
 }

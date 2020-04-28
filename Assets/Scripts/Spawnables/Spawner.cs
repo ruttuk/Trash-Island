@@ -45,43 +45,6 @@ public class Spawner : MonoBehaviour
     }
 
     /***
-     * Given an island, try to sample a flat area to spawn the object.
-     ***/
-    public static Vector3 SpawnObjectOnFlatArea(Island island, Landmark landmark)
-    {
-        //float centerX = island.x / 2f;
-        //float centerY = island.y / 2f;
-        float half = island.size / 2f;
-        int quarter = Mathf.RoundToInt(half / 2f); 
-        int spacing = 4;
-
-        Vector2 actualPos;
-        Vector3 spawnPos = Vector3.zero;
-
-        // Try starting towards the center of the island, this is typically the widest and flattest.
-        for (int x = quarter; x < island.size; x += spacing)
-        {
-            for (int y = quarter; y < island.size; y += spacing)
-            {
-                actualPos.x = island.x - half + x;
-                actualPos.y = island.y + half - y;
-
-                spawnPos = GetFlatArea(actualPos, landmark.boundX, landmark.boundZ);
-
-                if (spawnPos != Vector3.zero)
-                {
-                    spawnPos.y += landmark.yOffset;
-
-                    return spawnPos;
-                }
-            }
-        }
-
-        // if we get here, the object didn't find a good place to spawn.
-        return Vector3.zero;
-    }
-
-    /***
      * Given an island and a biome, spawn a number of terrain objects (trees/rocks/etc) on island.
      ***/
     public static void SpawnTerrainObjectsOnIsland(Island island, Biome biome, Transform parent)
@@ -132,7 +95,7 @@ public class Spawner : MonoBehaviour
 
                     GameObject objectToSpawn = spawnable.objectVariations[prng.Next(0, spawnable.objectVariations.Length)];
 
-                    SpawnTerrainObject(objectToSpawn, actualPos, minHeight, spawnable.matchNormalAngle, spawnable.yOffset, parent);
+                    SpawnTerrainObject(objectToSpawn, actualPos, minHeight, spawnable.matchNormalAngle, spawnable.yOffset, parent, biome.spawnAboveMinHeight);
                 }
             }
         }
@@ -141,14 +104,13 @@ public class Spawner : MonoBehaviour
     /***
      * Raycast to spawn at correct position.
      ***/
-    static void SpawnTerrainObject(GameObject spawnableObject, Vector2 coordinates, float minHeight, bool matchNormalAngle, float yOffset, Transform parent)
+    static void SpawnTerrainObject(GameObject spawnableObject, Vector2 coordinates, float minHeight, bool matchNormalAngle, float yOffset, Transform parent, bool spawnAboveMinHeight)
     {
         RaycastHit hit;
 
         if (Physics.Raycast(new Vector3(coordinates.x, 999f, coordinates.y), -Vector3.up, out hit))
         {
-
-            if (hit.point.y >= minHeight)
+            if(spawnAboveMinHeight && hit.point.y >= minHeight || !spawnAboveMinHeight)
             {
                 var startRot = matchNormalAngle ? Quaternion.FromToRotation(Vector3.up, hit.normal) : Quaternion.identity;
                 Vector3 spawnPosition = new Vector3(hit.point.x, hit.point.y - yOffset, hit.point.z);
@@ -160,18 +122,53 @@ public class Spawner : MonoBehaviour
     }
 
     /***
+     * Given an island, try to sample a flat area to spawn the object.
+     ***/
+    public static Vector3 SpawnObjectOnFlatArea(Island island, Landmark landmark)
+    {
+        //float centerX = island.x / 2f;
+        //float centerY = island.y / 2f;
+        float half = island.size / 2f;
+        int quarter = Mathf.RoundToInt(half / 2f);
+        int spacing = 4;
+
+        Vector2 actualPos;
+        Vector3 spawnPos = Vector3.zero;
+
+        // Try starting towards the center of the island, this is typically the widest and flattest.
+        for (int x = quarter; x < island.size; x += spacing)
+        {
+            for (int y = quarter; y < island.size; y += spacing)
+            {
+                actualPos.x = island.x - half + x;
+                actualPos.y = island.y + half - y;
+
+                spawnPos = GetFlatArea(actualPos, landmark.boundX, landmark.boundZ, landmark.flatnessModifier);
+
+                if (spawnPos != Vector3.zero)
+                {
+                    spawnPos.y += landmark.yOffset;
+
+                    return spawnPos;
+                }
+            }
+        }
+
+        // if we get here, the object didn't find a good place to spawn.
+        return Vector3.zero;
+    }
+
+    /***
      * Given x, y coordinates and x, z bounds determine if the area is flat.
      * 
      * Used to check for valid locations for buildings/etc.
      * 
      ***/
-    public static Vector3 GetFlatArea(Vector2 coordinates, int boundX, int boundZ)
+    public static Vector3 GetFlatArea(Vector2 coordinates, int boundX, int boundZ, float flatness)
     {
         RaycastHit hit;
         Vector3 spawnPos = Vector3.zero;
         float minHeight = 3f;
-        float flatness = 0.5f;
-
 
         for (int x = 0; x < boundX; x++)
         {
@@ -192,13 +189,6 @@ public class Spawner : MonoBehaviour
                 }
             }
         }
-
-        // if we've checked all points in bounds, spawnPos is now at the bottom corner of where it should be.
-        // so spawnPos.x -= boundX / 2
-        // spawnPos.z += boundZ / 2
-
-        //spawnPos.x -= boundX / 2f;
-        //spawnPos.z += boundZ / 2f;
 
         return spawnPos;
     }
@@ -247,7 +237,8 @@ public class Spawner : MonoBehaviour
                 {
                     Debug.Log("Spawning flat landmark!");
 
-                    Instantiate(flatLandmarks[flatLandmarkIndex].landmarkObject, spawnPos, Quaternion.identity);
+                    GameObject spawnedLandmark = Instantiate(flatLandmarks[flatLandmarkIndex].landmarkObject, spawnPos, Quaternion.identity);
+                    spawnedLandmark.transform.Rotate(new Vector3(0f, flatLandmarks[flatLandmarkIndex].yRotAngle, 0f));
                     regions[i].landmarks.Add(flatLandmarks[flatLandmarkIndex]);
                     flatLandmarkIndex++;
 
@@ -338,7 +329,8 @@ public class Spawner : MonoBehaviour
             if (CheckForOverlap(region, coorX, coorZ, halfSize * 2))
             {
                 spawnPos = new Vector3(coorX, landmark.yOffset, coorZ);
-                Instantiate(landmark.landmarkObject, spawnPos, Quaternion.identity);
+                GameObject spawnedLandmark = Instantiate(landmark.landmarkObject, spawnPos, Quaternion.identity);
+                spawnedLandmark.transform.Rotate(new Vector3(0f, landmark.yRotAngle, 0f));
 
                 // If we create an open water landmark like this, we're basically creating an island of size largerBound.
                 Island openWaterLandmark = new Island(largerBound);

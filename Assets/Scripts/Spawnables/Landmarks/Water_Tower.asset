@@ -13,9 +13,11 @@ MonoBehaviour:
   m_Name: Water_Tower
   m_EditorClassIdentifier: 
   yOffset: 4.9
+  yRotAngle: 15
   boundX: 15
   boundZ: 15
   openWater: 0
   flat: 1
+  flatnessModifier: 0.1
   landmarkObject: {fileID: 3721881149144527968, guid: 6698b20dddfad1a41b2b145925f320b1,
     type: 3}

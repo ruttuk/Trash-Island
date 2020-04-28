@@ -17,9 +17,9 @@ public class LoadLevel : MonoBehaviour
 
     IEnumerator FadeToBlack()
     {
-        while(fadeOut_CG.alpha < 1f)
+        while(fadeOut_CG.alpha > 0f)
         {
-            fadeOut_CG.alpha += fadeIncrement;
+            fadeOut_CG.alpha -= fadeIncrement;
             yield return new WaitForSeconds(fadeIncrement);
         }
 

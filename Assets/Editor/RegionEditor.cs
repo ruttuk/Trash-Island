@@ -21,7 +21,7 @@ public class RegionEditor : Editor
 
         if (GUILayout.Button("Generate Region"))
         {
-            regionGenerator.CreateRegion(defaultRegionSize, defaultOffsetX , defaultOffsetY, regionGenerator.transform, FindObjectOfType<MapDisplay>());
+            regionGenerator.CreateRegion(defaultRegionSize, defaultOffsetX , defaultOffsetY, regionGenerator.transform, FindObjectOfType<MapDisplay>(), regionGenerator.editorBiome);
         }
 
         if (GUILayout.Button("Clear Region"))

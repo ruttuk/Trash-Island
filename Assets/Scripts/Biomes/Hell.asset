@@ -17,6 +17,7 @@ MonoBehaviour:
   granularity: 1
   octaves: 12
   heightMultiplier: 12
+  spawnAboveMinHeight: 1
   meshHeightCurve:
     serializedVersion: 2
     m_Curve:
@@ -141,7 +142,6 @@ MonoBehaviour:
     spawnableObjects:
     - {fileID: 11400000, guid: a13ff935426458540bcb4780ce218573, type: 2}
     - {fileID: 11400000, guid: 9e860656f2d2ae84d93eef1e5a16e212, type: 2}
-    - {fileID: 11400000, guid: 1f2b1f14e894ccf418a3e5fabe62fa7d, type: 2}
   - type: 2
     height: 0.3
     color: {r: 0.8773585, g: 0.4894977, b: 0.32694018, a: 0}
@@ -155,13 +155,11 @@ MonoBehaviour:
     spawnableObjects:
     - {fileID: 11400000, guid: f7d2aa50442ba034c8864ea05ac7eb82, type: 2}
     - {fileID: 11400000, guid: cc59407756741af4caac0a5ea58addc7, type: 2}
-    - {fileID: 11400000, guid: 1f2b1f14e894ccf418a3e5fabe62fa7d, type: 2}
   - type: 3
     height: 0.8
     color: {r: 0.2735849, g: 0.18454076, b: 0.24546568, a: 0}
     spawnableObjects:
     - {fileID: 11400000, guid: f7d2aa50442ba034c8864ea05ac7eb82, type: 2}
-    - {fileID: 11400000, guid: 1f2b1f14e894ccf418a3e5fabe62fa7d, type: 2}
     - {fileID: 11400000, guid: 2e30395c34bd51843ae21f0276afe2ad, type: 2}
   - type: 4
     height: 1

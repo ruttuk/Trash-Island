@@ -13,7 +13,7 @@ public class Sky : MonoBehaviour
     private bool rising;
     Light skylight;
 
-    private float lightIntensityAdjuster = 0.005f;
+    private float lightIntensityAdjuster = 0.001f;
 
     // Start is called before the first frame update
     void Start()
@@ -50,7 +50,6 @@ public class Sky : MonoBehaviour
             rising = false;
             lightIntensityAdjuster *= -1;
             Debug.Log("Setting now...");
-            skylight.intensity = maxIntensity - 0.001f;
         }
 
         float rot = Time.deltaTime * speed;

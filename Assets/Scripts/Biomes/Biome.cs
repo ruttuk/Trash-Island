@@ -14,6 +14,7 @@ public class Biome : ScriptableObject
     public float granularity = 0.5f;
     public int octaves;
     public float heightMultiplier;
+    public bool spawnAboveMinHeight;
     public AnimationCurve meshHeightCurve;
     public IslandData.IslandTerrain[] terrainTypes;
 }

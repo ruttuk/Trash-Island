@@ -15,14 +15,15 @@ MonoBehaviour:
   islandGenerationType: 1
   landMassPercentage: 1
   granularity: 1
-  octaves: 2
+  octaves: 5
   heightMultiplier: 4
+  spawnAboveMinHeight: 1
   meshHeightCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 0.0070648193
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -30,13 +31,40 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 2
-      outSlope: 2
+      time: 0.077702254
+      value: 0.5114758
+      inSlope: -1.6882782
+      outSlope: -1.6882782
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0
+      inWeight: 0.9372212
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.23057568
+      value: 0.84442264
+      inSlope: 0.12415182
+      outSlope: 0.12415182
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.8399651
+      value: 0.9377501
+      inSlope: 0.2639087
+      outSlope: 0.2639087
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.14924055
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 1.0070648
+      inSlope: 0.4833084
+      outSlope: 0.4833084
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.2103204
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
@@ -64,7 +92,6 @@ MonoBehaviour:
     color: {r: 0.8773585, g: 0.4894977, b: 0.32694018, a: 0}
     spawnableObjects:
     - {fileID: 11400000, guid: 620bac29d71ae5f4ba49db9ed9599324, type: 2}
-    - {fileID: 11400000, guid: 1f2b1f14e894ccf418a3e5fabe62fa7d, type: 2}
   - type: 3
     height: 0.55
     color: {r: 0.38679248, g: 0.31198826, b: 0.38204303, a: 0}
@@ -76,6 +103,7 @@ MonoBehaviour:
     spawnableObjects:
     - {fileID: 11400000, guid: a13ff935426458540bcb4780ce218573, type: 2}
     - {fileID: 11400000, guid: 1f2b1f14e894ccf418a3e5fabe62fa7d, type: 2}
+    - {fileID: 11400000, guid: f7d2aa50442ba034c8864ea05ac7eb82, type: 2}
   - type: 4
     height: 1
     color: {r: 0.5849056, g: 0.40005338, b: 0.40005338, a: 0}
@@ -83,3 +111,4 @@ MonoBehaviour:
     - {fileID: 11400000, guid: a13ff935426458540bcb4780ce218573, type: 2}
     - {fileID: 11400000, guid: 1f2b1f14e894ccf418a3e5fabe62fa7d, type: 2}
     - {fileID: 11400000, guid: 620bac29d71ae5f4ba49db9ed9599324, type: 2}
+    - {fileID: 11400000, guid: f7d2aa50442ba034c8864ea05ac7eb82, type: 2}

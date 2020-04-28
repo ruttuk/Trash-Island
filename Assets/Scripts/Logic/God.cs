@@ -35,7 +35,7 @@ public class God : MonoBehaviour
             playerAwake = true;
             playerCharacter.isKinematic = true;
 
-            Vector3 randomOceanPosition = Vector3.zero; //regionGenerator.GetRandomPointOfTerrainType(0, ocean);
+            Vector3 randomOceanPosition = new Vector3(512, 0f, 512f);
 
             if(randomOceanPosition != Vector3.negativeInfinity)
             {
