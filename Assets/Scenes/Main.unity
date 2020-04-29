@@ -152,6 +152,7 @@ Transform:
   m_Children:
   - {fileID: 924881354}
   - {fileID: 1351098650}
+  - {fileID: 299620796}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -172,6 +173,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4da27b72eb174aa46a7c8cc8066e3042, type: 2}
   - {fileID: 11400000, guid: d7d4df6136bcd4e488fb6341b1bf3f2f, type: 2}
   - {fileID: 11400000, guid: 680b2763d0397f44798184c9489f7ece, type: 2}
+  - {fileID: 11400000, guid: e15db07e25912334a9570d6027c1aeb1, type: 2}
   regionTransforms:
   - {fileID: 704592090}
   - {fileID: 133434544}
@@ -253,15 +255,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 299620795}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 256, y: 1.999, z: 256}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2088757689}
   - {fileID: 1201096015}
   - {fileID: 368245422}
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_Father: {fileID: 61144103}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &328526449 stripped
 GameObject:
@@ -707,12 +709,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0.7
   maxIntensity: 0.5
---- !u!4 &651187236 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6485345143327112842, guid: 0ff041bdc2ff0cf448c7b1b19b572773,
-    type: 3}
-  m_PrefabInstance: {fileID: 3880022054802472630}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &704592089
 GameObject:
   m_ObjectHideFlags: 0
@@ -929,13 +925,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 900064839}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 221.19095, y: 191.14345, z: -128.50452}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1133345390}
   - {fileID: 1643174495}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &924881353
 GameObject:
@@ -961,7 +957,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 924881353}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -892, y: -15.409666, z: -572}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1573721137}
@@ -1424,12 +1420,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1351098649}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -891.96533, y: -11.298826, z: -572.0089}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1795020206}
   - {fileID: 599060451}
   - {fileID: 608649916}
+  - {fileID: 1695754906}
   m_Father: {fileID: 61144103}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1772,12 +1769,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1695754904}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_Father: {fileID: 1351098650}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1744839454
 PrefabInstance:
@@ -2181,7 +2178,7 @@ GameObject:
   - component: {fileID: 1795020206}
   - component: {fileID: 1795020207}
   m_Layer: 0
-  m_Name: God
+  m_Name: VibeChecker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2215,11 +2212,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   regionGenerator: {fileID: 1220155444}
   playerCharacter: {fileID: 220657918}
-  lantern: {fileID: 651187236}
+  ladderInUse: {fileID: 0}
   descendingLadder: 0
   ladderControl: 0
   playerControl: 0
-  ladderInUse: {fileID: 0}
 --- !u!1001 &2088757688
 PrefabInstance:
   m_ObjectHideFlags: 0

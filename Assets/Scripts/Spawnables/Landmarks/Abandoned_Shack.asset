@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f98bcfd10475d046b2902a67d80b7c8, type: 3}
+  m_Name: Abandoned_Shack
+  m_EditorClassIdentifier: 
+  yOffset: 4.6
+  yRotAngle: 0
+  boundX: 30
+  boundZ: 30
+  openWater: 1
+  flat: 0
+  flatnessModifier: 0.25
+  landmarkObject: {fileID: 7235591582154883514, guid: 4c49f14448bc6b34d8cd5f80622e4e4a,
+    type: 3}

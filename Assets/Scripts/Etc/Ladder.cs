@@ -6,7 +6,7 @@ using UnityEngine;
 public class Ladder : MonoBehaviour
 {
     public Ladder sibling;
-    God m_God;
+    VibeChecker m_God;
     Rigidbody player;
 
     private float maxLadderHeight, minLadderHeight;
@@ -22,7 +22,7 @@ public class Ladder : MonoBehaviour
     void Start()
     {
         cooldown = false;
-        m_God = FindObjectOfType<God>();
+        m_God = FindObjectOfType<VibeChecker>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody>();
         playerMass = player.mass;
 

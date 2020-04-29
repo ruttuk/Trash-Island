@@ -7,7 +7,6 @@ public class Boat : MonoBehaviour
 {
     public float turnForce = 2f;
     public float buckForce = 0.5f;
-
     public float slowDownForce = 5f;
 
     private NoiseTarget m_NoiseTarget;
@@ -23,21 +22,24 @@ public class Boat : MonoBehaviour
 
     Camera main;
     Transform playerTransform;
-    God god;
+    VibeChecker vibeChecker;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         m_NoiseTarget = GetComponent<NoiseTarget>();
-        god = FindObjectOfType<God>();
+        vibeChecker = FindObjectOfType<VibeChecker>();
 
         main = Camera.main;
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+
+        rb.velocity = Vector3.zero;
+        rb.isKinematic = true;
     }
 
     void FixedUpdate()
     {
-        if(!god.playerControl && !god.ladderControl)
+        if(!vibeChecker.playerControl && !vibeChecker.ladderControl)
         {
             float x = Input.GetAxis("Horizontal");
             float y = Input.GetAxis("Vertical");

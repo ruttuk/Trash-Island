@@ -8,13 +8,37 @@ public class Spawner : MonoBehaviour
 
     public static void SpawnSpawnPoints()
     {
+
+        Transform playerSpawnTransform = GameObject.FindGameObjectWithTag("PLAYER_SPAWN").transform;
         GameObject[] spawnPoints = GameObject.FindGameObjectsWithTag("SPAWNPOINT");
 
         int numSpawnPoints = spawnPoints.Length;
 
-        for(int i = 0; i < numSpawnPoints; i++)
+        float currentSpawnDistance;
+        float closestSpawnDistance = float.MaxValue;
+        int closestSpawnIndex = 0;
+
+        // We want to make sure the spawn point that is closest to player spawn is active.
+        for (int i = 0; i < numSpawnPoints; i++)
         {
-            spawnPoints[i].SetActive(false);
+            currentSpawnDistance = Vector3.Distance(playerSpawnTransform.position, spawnPoints[i].transform.position);
+
+            if(currentSpawnDistance < closestSpawnDistance)
+            {
+                closestSpawnDistance = currentSpawnDistance;
+                closestSpawnIndex = i;
+            }
+        }
+
+        spawnPoints[closestSpawnIndex].AddComponent<Artifact>();
+
+        // Now, let's set all the other spawn points inactive.
+        for (int i = 0; i < numSpawnPoints; i++)
+        {
+            if(i != closestSpawnIndex)
+            {
+                spawnPoints[i].SetActive(false);
+            }
         }
 
         int numArtifacts = 8;
@@ -25,7 +49,7 @@ public class Spawner : MonoBehaviour
         System.Random prng = new System.Random();
         int index;
 
-        for (int i = 0; i < numArtifacts; i++)
+        for (int i = 0; i < numArtifacts - 1; i++)
         {
             index = prng.Next(0, 999999) % numSpawnPoints;
 
@@ -39,6 +63,7 @@ public class Spawner : MonoBehaviour
             }
             else
             {
+                // basically doing this if we hit a spawn point we already activated
                 i--;
             }
         }
@@ -324,7 +349,7 @@ public class Spawner : MonoBehaviour
         for (int i = 0; i < numTries; i++)
         {
             coorX = prng.Next(halfSize, regionSize - halfSize) + region.worldOffsetX;
-            coorZ = prng.Next(halfSize, regionSize - halfSize) + region.worldOffsetY;
+            coorZ = prng.Next(halfSize, regionSize - halfSize) - region.worldOffsetY;
 
             if (CheckForOverlap(region, coorX, coorZ, halfSize * 2))
             {

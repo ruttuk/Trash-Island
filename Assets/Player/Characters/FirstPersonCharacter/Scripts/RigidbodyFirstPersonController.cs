@@ -88,7 +88,7 @@ using UnityEngine;
         private bool m_Jump, m_PreviouslyGrounded, m_Jumping, m_IsGrounded;
 
         // SHIT I ADDED :
-        private God m_God;
+        private VibeChecker m_God;
         private NoiseTarget m_NoiseTarget;
 
         public Vector3 Velocity
@@ -123,7 +123,7 @@ using UnityEngine;
         {
             m_RigidBody = GetComponent<Rigidbody>();
             m_Capsule = GetComponent<CapsuleCollider>();
-            m_God = FindObjectOfType<God>();
+            m_God = FindObjectOfType<VibeChecker>();
             m_NoiseTarget = GetComponent<NoiseTarget>();
             mouseLook.Init (transform, cam.transform);
         }
