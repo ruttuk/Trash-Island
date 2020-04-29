@@ -23,17 +23,6 @@ public class LoadLevel : MonoBehaviour
             yield return new WaitForSeconds(fadeIncrement);
         }
 
-        yield return Load(1);
-    }
-
-    IEnumerator Load(int sceneIndex)
-    {
-        AsyncOperation operation = SceneManager.LoadSceneAsync(sceneIndex);
-
-        while(!operation.isDone)
-        {
-            Debug.Log(operation.progress);
-            yield return null;
-        }
+        yield return Utility.Load(1, 0f);
     }
 }

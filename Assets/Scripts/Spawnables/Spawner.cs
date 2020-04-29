@@ -41,7 +41,7 @@ public class Spawner : MonoBehaviour
             }
         }
 
-        int numArtifacts = 8;
+        int numArtifacts = 1;
 
         // pick 8 numbers between 0-spawnPoints.length
         // These will be artifacts. 
@@ -344,12 +344,12 @@ public class Spawner : MonoBehaviour
         int largerBound = landmark.boundX > landmark.boundZ ? landmark.boundX : landmark.boundZ;
         halfSize = largerBound/ 2;
 
-        int numTries = 8;
+        int numTries = 12;
 
         for (int i = 0; i < numTries; i++)
         {
-            coorX = prng.Next(halfSize, regionSize - halfSize) + region.worldOffsetX;
-            coorZ = prng.Next(halfSize, regionSize - halfSize) - region.worldOffsetY;
+            coorX = prng.Next(halfSize, regionSize - halfSize) - region.worldOffsetX;
+            coorZ = prng.Next(halfSize, regionSize - halfSize) + region.worldOffsetY;
 
             if (CheckForOverlap(region, coorX, coorZ, halfSize * 2))
             {
@@ -368,6 +368,10 @@ public class Spawner : MonoBehaviour
                 Debug.Log($"Spawning {landmark.name} in open water...");
 
                 return true;
+            }
+            else
+            {
+                Debug.Log("Couldn't find a viable OW spawn location, retrying...");
             }
         }
 

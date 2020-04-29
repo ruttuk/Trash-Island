@@ -7,14 +7,18 @@ public class VibeChecker : MonoBehaviour
     public RegionGenerator regionGenerator;
     public Rigidbody playerCharacter;
     public Ladder ladderInUse;
-
+    public CanvasGroup credits_CG;
+    public CanvasGroup fadePanel_CG;
     private Boat boat;
 
+    public bool fixedCamera = false;
     public bool descendingLadder = false;
     public bool ladderControl = false;
     public bool playerControl;
     private bool playerAwake;
 
+    private const string smokeParticleTag = "SMOKE_PARTICLE";
+    private const string endingCameraPointTag = "END_CAMERA_POINT";
     private const string startingPlayerPointTag = "PLAYER_SPAWN";
     private const string startingBoatPointTag = "BOAT_SPAWN";
     private const float interactionRange = 3f;
@@ -89,5 +93,28 @@ public class VibeChecker : MonoBehaviour
         {
             Debug.Log($"Couldn't find starting point for {initialTransform}!");
         }
+    }
+
+    public void EndSequence()
+    {
+        GameObject[] smokeStacks = GameObject.FindGameObjectsWithTag(smokeParticleTag);
+
+        for(int i = 0; i < smokeStacks.Length; i++)
+        {
+            smokeStacks[i].GetComponent<ParticleSystem>().Play();
+        }
+
+        fixedCamera = true;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+
+        Camera.main.transform.SetParent(null);
+        Camera.main.transform.position = GameObject.FindGameObjectWithTag(endingCameraPointTag).transform.position;
+        Camera.main.transform.LookAt(playerCharacter.transform);
+
+        StartCoroutine(Utility.Fade(credits_CG, true, 0.01f, 3f));
+        StartCoroutine(Utility.Fade(fadePanel_CG, true, 0.01f, 10f));
+        StartCoroutine(Utility.Fade(credits_CG, false, 0.05f, 10f));
+        StartCoroutine(Utility.Load(0, 12f));
     }
 }

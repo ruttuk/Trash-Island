@@ -131,33 +131,37 @@ using UnityEngine;
 
         private void Update()
         {
-            RotateView();
-
-            if (Input.GetButtonDown("Jump") && !m_Jump)
+            if(!m_God.fixedCamera)
             {
-                m_Jump = true;
+                RotateView();
+
+                if (Input.GetButtonDown("Jump") && !m_Jump)
+                {
+                    m_Jump = true;
+                }
             }
         }
 
         private float ladderClimbSpeed = 2f;
 
-
         private void FixedUpdate()
         {
-            GroundCheck();
-            Vector2 input = GetInput();
-
-            if (m_God.ladderControl)
+            if(!m_God.fixedCamera)
             {
-                float descending = m_God.descendingLadder ? -1f : 1f;
-                Vector3 up = new Vector3(0f, input.y * Time.deltaTime * ladderClimbSpeed * descending, 0f);
-                transform.Translate(up);
-            }
-            else
-            {
-                MovePlayer(input);
-            }
+                GroundCheck();
+                Vector2 input = GetInput();
 
+                if (m_God.ladderControl)
+                {
+                    float descending = m_God.descendingLadder ? -1f : 1f;
+                    Vector3 up = new Vector3(0f, input.y * Time.deltaTime * ladderClimbSpeed * descending, 0f);
+                    transform.Translate(up);
+                }
+                else
+                {
+                    MovePlayer(input);
+                }
+            }
         }
 
         private void MovePlayer(Vector2 input)

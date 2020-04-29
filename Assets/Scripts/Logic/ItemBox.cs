@@ -19,6 +19,11 @@ public class ItemBox : MonoBehaviour
         UpdateText();
     }
 
+    public bool CollectedAllArtifacts()
+    {
+        return artifacts.Count == totalArtifacts;
+    }
+
     public void AddArtifactToItemBox(Artifact artifact)
     {
         artifacts.Add(artifact);

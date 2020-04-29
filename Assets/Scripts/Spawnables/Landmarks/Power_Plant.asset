@@ -19,5 +19,5 @@ MonoBehaviour:
   openWater: 0
   flat: 1
   flatnessModifier: 0.33
-  landmarkObject: {fileID: 5192672036767672268, guid: 99a6925f32220d24c96c60f1ac63d8d7,
+  landmarkObject: {fileID: 237822515396675686, guid: 99a6925f32220d24c96c60f1ac63d8d7,
     type: 3}

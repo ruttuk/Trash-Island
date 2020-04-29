@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public static class Utility
 {
@@ -26,5 +27,42 @@ public static class Utility
             }
         }
         return false;
+    }
+
+    public static IEnumerator Fade(CanvasGroup cg, bool fadeIn, float fadeIncrement, float secondsOffset)
+    {
+        yield return new WaitForSeconds(secondsOffset);
+
+        if(fadeIn)
+        {
+            while (cg.alpha < 1f)
+            {
+                cg.alpha += fadeIncrement;
+                yield return new WaitForSeconds(fadeIncrement);
+            }
+        }
+        else
+        {
+            while (cg.alpha > 0f)
+            {
+                cg.alpha -= fadeIncrement;
+                yield return new WaitForSeconds(fadeIncrement);
+            }
+        }
+
+        yield return null;
+    }
+
+    public static IEnumerator Load(int sceneIndex, float secondsOffset)
+    {
+        yield return new WaitForSeconds(secondsOffset);
+
+        AsyncOperation operation = SceneManager.LoadSceneAsync(sceneIndex);
+
+        while (!operation.isDone)
+        {
+            Debug.Log(operation.progress);
+            yield return null;
+        }
     }
 }
