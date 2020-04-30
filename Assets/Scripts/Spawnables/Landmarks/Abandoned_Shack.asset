@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   yOffset: 4.6
   yRotAngle: 0
-  boundX: 30
-  boundZ: 30
+  boundX: 50
+  boundZ: 50
   openWater: 1
   flat: 0
   flatnessModifier: 0.25

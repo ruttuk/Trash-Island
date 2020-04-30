@@ -41,7 +41,12 @@ public class Spawner : MonoBehaviour
             }
         }
 
-        int numArtifacts = 8;
+        int numArtifacts = 11;
+
+        if(numArtifacts > numSpawnPoints)
+        {
+            numArtifacts = numSpawnPoints;
+        }
 
         // pick 8 numbers between 0-spawnPoints.length
         // These will be artifacts. 
@@ -342,16 +347,16 @@ public class Spawner : MonoBehaviour
 
         // Take the larger of the bounds and use that size for spawning.
         int largerBound = landmark.boundX > landmark.boundZ ? landmark.boundX : landmark.boundZ;
-        halfSize = largerBound/ 2;
+        halfSize = largerBound / 2;
 
         int numTries = 12;
 
         for (int i = 0; i < numTries; i++)
         {
-            coorX = prng.Next(halfSize, regionSize - halfSize) - region.worldOffsetX;
+            coorX = prng.Next(halfSize, regionSize - halfSize) + region.worldOffsetX;
             coorZ = prng.Next(halfSize, regionSize - halfSize) + region.worldOffsetY;
 
-            if (CheckForOverlap(region, coorX, coorZ, halfSize * 2))
+            if (CheckForOverlap(region, coorX, coorZ, largerBound))
             {
                 spawnPos = new Vector3(coorX, landmark.yOffset, coorZ);
                 GameObject spawnedLandmark = Instantiate(landmark.landmarkObject, spawnPos, Quaternion.identity);

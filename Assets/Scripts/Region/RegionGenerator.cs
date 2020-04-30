@@ -146,7 +146,7 @@ public class RegionGenerator : MonoBehaviour
             for (int j = 0; j < maxRetries; j++, retries++)
             {
                 halfMass = islandMassDataList[i].islandSize / 2;
-                x = prng.Next(halfMass, regionSize - halfMass) - worldOffsetX;
+                x = prng.Next(halfMass, regionSize - halfMass) + worldOffsetX;
                 y = prng.Next(halfMass, regionSize - halfMass) + worldOffsetY;
 
                 if (Spawner.CheckForOverlap(region, x, y, islandMassDataList[i].islandSize))

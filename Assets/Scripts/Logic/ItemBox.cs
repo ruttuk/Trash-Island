@@ -10,6 +10,8 @@ public class ItemBox : MonoBehaviour
     List<Artifact> artifacts;
     int totalArtifacts;
 
+    private const int neccessaryArtifactCount = 7;
+
     void Start()
     {
         artifacts = new List<Artifact>();
@@ -21,7 +23,7 @@ public class ItemBox : MonoBehaviour
 
     public bool CollectedAllArtifacts()
     {
-        return artifacts.Count == totalArtifacts;
+        return artifacts.Count == neccessaryArtifactCount;
     }
 
     public void AddArtifactToItemBox(Artifact artifact)
@@ -32,6 +34,6 @@ public class ItemBox : MonoBehaviour
 
     void UpdateText()
     {
-        collectedArtifactsText.text = artifacts.Count.ToString() + " / " + totalArtifacts.ToString();
+        collectedArtifactsText.text = artifacts.Count.ToString() + " / " + neccessaryArtifactCount.ToString();
     }
 }
