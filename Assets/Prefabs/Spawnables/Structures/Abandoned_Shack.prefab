@@ -58,7 +58,7 @@ GameObject:
   - component: {fileID: 5930078088255968284}
   m_Layer: 0
   m_Name: Dock
-  m_TagString: Untagged
+  m_TagString: LANDMARK
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -208,7 +208,7 @@ GameObject:
   - component: {fileID: 256453387701686696}
   m_Layer: 0
   m_Name: House
-  m_TagString: Untagged
+  m_TagString: LANDMARK
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -297,7 +297,7 @@ GameObject:
   - component: {fileID: 2326177480391837579}
   m_Layer: 0
   m_Name: WallColliders
-  m_TagString: Untagged
+  m_TagString: LANDMARK
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -377,7 +377,7 @@ GameObject:
   - component: {fileID: 1327916703351767650}
   m_Layer: 0
   m_Name: Steps
-  m_TagString: Untagged
+  m_TagString: LANDMARK
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -453,7 +453,7 @@ GameObject:
   - component: {fileID: 5922978900051293097}
   m_Layer: 0
   m_Name: Abandoned_Shack
-  m_TagString: Untagged
+  m_TagString: LANDMARK
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -598,7 +598,7 @@ GameObject:
   - component: {fileID: 3914260036179854261}
   m_Layer: 0
   m_Name: Roof
-  m_TagString: Untagged
+  m_TagString: LANDMARK
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

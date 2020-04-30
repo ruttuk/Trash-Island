@@ -67,7 +67,7 @@ GameObject:
   - component: {fileID: 652997522006644898}
   m_Layer: 0
   m_Name: Base
-  m_TagString: Untagged
+  m_TagString: LANDMARK
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -143,8 +143,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.09942494, y: 0.27959004, z: 0.17951106}
-  m_Center: {x: 0.00033853055, y: 0.05978424, z: 0.08032803}
+  m_Size: {x: 0.09942494, y: 0.2836223, z: 0.10147848}
+  m_Center: {x: 0.00033853055, y: 0.06459139, z: 0.041311808}
 --- !u!1 &6718284686773529603
 GameObject:
   m_ObjectHideFlags: 0

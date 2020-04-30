@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 3825723812592876149}
   m_Layer: 0
   m_Name: Power_Plant
-  m_TagString: Untagged
+  m_TagString: LANDMARK
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -80,7 +80,7 @@ GameObject:
   - component: {fileID: 6536362467926950212}
   m_Layer: 0
   m_Name: FurnaceSteps.001
-  m_TagString: Untagged
+  m_TagString: LANDMARK
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -159,7 +159,7 @@ GameObject:
   - component: {fileID: 7530798339567313596}
   m_Layer: 0
   m_Name: BackHallway
-  m_TagString: Untagged
+  m_TagString: LANDMARK
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -251,7 +251,7 @@ GameObject:
   - component: {fileID: 5870205340127791721}
   m_Layer: 0
   m_Name: Roof
-  m_TagString: Untagged
+  m_TagString: LANDMARK
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -359,7 +359,7 @@ GameObject:
   - component: {fileID: 3069199593141751036}
   m_Layer: 0
   m_Name: SmokeStack
-  m_TagString: Untagged
+  m_TagString: LANDMARK
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -441,7 +441,7 @@ GameObject:
   - component: {fileID: 2360867630136493781}
   m_Layer: 0
   m_Name: Skeleton
-  m_TagString: Untagged
+  m_TagString: LANDMARK
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5286,7 +5286,7 @@ GameObject:
   - component: {fileID: 8606253100587062649}
   m_Layer: 0
   m_Name: InnerRailing
-  m_TagString: Untagged
+  m_TagString: LANDMARK
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5364,7 +5364,7 @@ GameObject:
   - component: {fileID: 5571190044807293956}
   m_Layer: 0
   m_Name: StairsSupport
-  m_TagString: Untagged
+  m_TagString: LANDMARK
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14948,7 +14948,7 @@ GameObject:
   - component: {fileID: 1763872369734433061}
   m_Layer: 0
   m_Name: FurnaceSteps
-  m_TagString: Untagged
+  m_TagString: LANDMARK
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15026,7 +15026,7 @@ GameObject:
   - component: {fileID: 8620753759187722290}
   m_Layer: 0
   m_Name: Stairs
-  m_TagString: Untagged
+  m_TagString: LANDMARK
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15104,7 +15104,7 @@ GameObject:
   - component: {fileID: 5979077264789241314}
   m_Layer: 0
   m_Name: FurnaceRailing
-  m_TagString: Untagged
+  m_TagString: LANDMARK
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15182,7 +15182,7 @@ GameObject:
   - component: {fileID: 3597634680286060517}
   m_Layer: 0
   m_Name: OuterRailing
-  m_TagString: Untagged
+  m_TagString: LANDMARK
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15261,7 +15261,7 @@ GameObject:
   - component: {fileID: 495239806092222122}
   m_Layer: 0
   m_Name: FurnacePlatform
-  m_TagString: Untagged
+  m_TagString: LANDMARK
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15366,7 +15366,7 @@ GameObject:
   - component: {fileID: 1966101128434683117}
   m_Layer: 0
   m_Name: Atrium
-  m_TagString: Untagged
+  m_TagString: LANDMARK
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15444,7 +15444,7 @@ GameObject:
   - component: {fileID: 6791486863431474129}
   m_Layer: 0
   m_Name: StairsColliderMesh
-  m_TagString: Untagged
+  m_TagString: LANDMARK
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15668,6 +15668,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Industrial_Furnace
+      objectReference: {fileID: 0}
+    - target: {fileID: 4927448644917763277, guid: c563f85fa3747a74c816f6a464bb1b49,
+        type: 3}
+      propertyPath: m_TagString
+      value: LANDMARK
       objectReference: {fileID: 0}
     - target: {fileID: 8231042690173333214, guid: c563f85fa3747a74c816f6a464bb1b49,
         type: 3}
