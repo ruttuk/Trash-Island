@@ -41,7 +41,7 @@ public class Spawner : MonoBehaviour
             }
         }
 
-        int numArtifacts = 1;
+        int numArtifacts = 8;
 
         // pick 8 numbers between 0-spawnPoints.length
         // These will be artifacts. 
