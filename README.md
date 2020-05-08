@@ -18,9 +18,13 @@ Swamp Biome (Flat, wavy surface, Shrubs)
 #
 The meshes for the islands themselves are generated at runtime from the data-driven parameters of it's associated biome. The central method behind creating this mesh is first creating a height-map for the island. This is implemented as a 2D-array of floats that represent the relative height at any given coordinate of the island's relative space. In the image below, you can see what the generated texture of this height map looks like. 
 
-![Island Texture Map](/Assets/Resources/Materials/MenuIslandMat/MenuIslandTexture.png)
+![Island Texture Map](/Assets/Resources/Etc/ExampleIslandTexture2.jpg)
 Topographic Map of an Island
 
 An interesting challenge with this project was creating topographic maps of islands that each felt unique. To achieve this, I started by creating a smoothed, noise map - essentially setting each value randomly and smoothing nearby values. This resulted in a noisy, rolling landscape. Not particularly interesting. 
 
-I expanded on this by adding a falloff map, so that the height values towards the edges of each map would approach 0. Assuming that a height=0 is "underwater", the height maps started to appear like islands. However, each Island still felt generally the "same", since they were all being created the same way (from random noise). To make each one more unique, I implemented a point-based approach, where for each map, an array of coordinates act as height modifiers. Essentially, these points are like mountain peaks, and all surrounding points are pulled up based on their respective distance to peak.
+I expanded on this by adding a falloff map, so that the height values towards the edges of each map would approach 0. Assuming that a height=0 is "underwater", the height maps started to appear like islands. However, each Island still felt generally the "same", since they were all being created the same way (from random noise). To make each one more unique, I implemented a point-based approach, where for each map, an array of coordinates act as height modifiers. Essentially, these points are like mountain peaks, and all surrounding points are pulled up based on their respective distance to peak. In the images below, you can see some of the differences between two biomes height maps (Swamp and Hell biome). 
+
+![Hell Texture Map](/Assets/Resources/Etc/Hell_p50_s200.jpg)
+
+![Swamp Texture Map](/Assets/Resources/Etc/Swamp_p50_s200.jpg)
