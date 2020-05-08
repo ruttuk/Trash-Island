@@ -44,8 +44,9 @@ public class IslandGenerator : MonoBehaviour
 
             if(saveTexureToPng)
             {
-                string _fullPath = Application.dataPath + "/Resources/Materials/MenuIslandMat/MenuIslandTexture.png";
-                byte[] _bytes = islandMapTexture.EncodeToPNG();
+                string fileName = editorBiome.name + "_p" + islandMassDataEditor.numPoints + "_s" + islandMassDataEditor.islandSize;
+                string _fullPath = Application.dataPath + "/Resources/Etc/" + fileName +".jpg";
+                byte[] _bytes = islandMapTexture.EncodeToJPG();
                 System.IO.File.WriteAllBytes(_fullPath, _bytes);
                 Debug.Log(_bytes.Length / 1024 + "Kb was saved as: " + _fullPath);
             }
